@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/cl"
+            android:minHeight="600sp"
             android:paddingStart="30sp"
             android:paddingTop="40sp"
             android:paddingEnd="30sp">

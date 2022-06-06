@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:paddingStart="30sp"
             android:paddingTop="40sp"
+            android:minHeight="600sp"
             android:paddingEnd="30sp"
             tools:context=".SignUpScreen">
 

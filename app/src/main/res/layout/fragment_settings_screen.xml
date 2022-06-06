@@ -16,6 +16,7 @@
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="600sp"
             android:paddingStart="30sp"
             android:paddingTop="40sp"
             android:paddingEnd="30sp">
@@ -123,4 +124,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+
 </layout>
