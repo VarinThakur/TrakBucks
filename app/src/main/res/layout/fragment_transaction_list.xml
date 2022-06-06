@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="All Transactions"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        android:layout_marginTop="30sp"
+        android:id="@+id/all_transactions_text"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/all_transactions_text"
+        android:id="@+id/all_tranactions_recycler_view"
+        tools:listitem="@layout/transaction"
+        android:padding="20sp"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="20sp"
+        android:src="@drawable/ic_baseline_add_24"
+        android:id="@+id/add_transaction_button"
+        android:elevation="6sp"
+        app:fabSize="normal"
+        android:backgroundTint="@color/material_dynamic_primary70"/>
+
+
+</RelativeLayout>
