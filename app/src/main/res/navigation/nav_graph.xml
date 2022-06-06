@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/transactionListFragment2">
+    app:startDestination="@id/dashboard">
 
     <fragment
         android:id="@+id/dashboard"
@@ -11,7 +11,8 @@
         android:label="fragment_dashboard"
         tools:layout="@layout/fragment_dashboard" />
     <fragment
-        android:id="@+id/transactionListFragment2"
+        android:id="@+id/transactionListFragment"
         android:name="com.example.trakbucks.TransactionListFragment"
-        android:label="TransactionListFragment" />
+        android:label="fragment_transaction_list"
+        tools:layout="@layout/fragment_transaction_list"/>
 </navigation>
