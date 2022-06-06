@@ -32,4 +32,15 @@
     <string name="enter_your_full_name">Enter your Full Name.</string>
     <string name="select_your_theme">Select your Theme.</string>
     <string name="enter_your_name">Enter your Name.</string>
+    <string name="set_your_profile_photo">set your profile photo</string>
+    <string name="viruj_thakur">Viruj Thakur</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="notifications">notifications</string>
+    <string name="todo">TODO</string>
+    <string name="income">INCOME</string>
+    <string name="_20000">20000</string>
+    <string name="expenditure">EXPENDITURE</string>
+    <string name="recent_transactions">Recent Transactions</string>
+    <string name="jay_sharma">Jay Sharma</string>
+    <string name="all_transactions">All Transactions</string>
 </resources>
