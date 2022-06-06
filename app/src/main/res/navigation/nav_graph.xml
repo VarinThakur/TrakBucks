@@ -23,4 +23,20 @@
             android:id="@+id/action_transactionListFragment_to_dashboard"
             app:destination="@id/dashboard" />
     </fragment>
+        
+    <fragment
+        android:id="@+id/profileScreen"
+        tools:layout="@layout/fragment_profile_screen"
+        android:name="com.example.trakbucks.ProfileScreen"
+        android:label="ProfileScreen" />
+    <fragment
+        android:id="@+id/settingsScreen"
+        android:name="com.example.trakbucks.SettingsScreen"
+        tools:layout="@layout/fragment_settings_screen"
+        android:label="SettingsScreen" />
+    <fragment
+        android:id="@+id/signUpScreen"
+        android:name="com.example.trakbucks.SignUpScreen"
+        tools:layout="@layout/fragment_sign_up_screen"
+        android:label="SignUpScreen" />
 </navigation>
