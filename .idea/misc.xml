@@ -3,6 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/drawable/arrow_back_ios_119432.xml" value="0.1445" />
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/drawable/arrowiosback_111116.xml" value="0.1445" />
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/drawable/camera_icon.xml" value="0.1125" />
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.1335" />
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.1445" />
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1445" />
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/drawable/icon_scale.xml" value="0.1285" />
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/drawable/icon_scale_themes.xml" value="0.194" />
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/drawable/indian_rupee_symbol.xml" value="0.1445" />
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/drawable/round_button.xml" value="0.1335" />
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/drawable/theme_10.xml" value="0.194" />
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/layout/fragment_login.xml" value="0.17708333333333334" />
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/layout/fragment_profile_screen.xml" value="0.2" />
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/layout/fragment_settings_screen.xml" value="0.4" />
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/layout/fragment_sign_up_screen.xml" value="0.264" />
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/layout/list_item_dropdown.xml" value="0.17708333333333334" />
         <entry key="..\:/TrakBuks/app/src/main/res/layout/activity_main.xml" value="0.10989583333333333" />
       </map>
     </option>
