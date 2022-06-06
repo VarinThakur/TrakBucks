@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/TrakBuks/app/src/main/res/drawable/round_button.xml" value="0.2545" />
         <entry key="..\:/TrakBuks/app/src/main/res/layout/activity_main.xml" value="0.10989583333333333" />
         <entry key="..\:/TrakBuks/app/src/main/res/layout/fragment_contact_list.xml" value="0.22826086956521738" />
         <entry key="..\:/TrakBuks/app/src/main/res/layout/fragment_dashboard.xml" value="0.22826086956521738" />
+        <entry key="..\:/TrakBuks/app/src/main/res/layout/recent_transactions_list.xml" value="0.25" />
       </map>
     </option>
   </component>
