@@ -2,4 +2,15 @@
     <string name="app_name">TrakBucks</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="set_your_profile_photo">set your profile photo</string>
+    <string name="viruj_thakur">Viruj Thakur</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="notifications">notifications</string>
+    <string name="todo">TODO</string>
+    <string name="income">INCOME</string>
+    <string name="_20000">20000</string>
+    <string name="expenditure">EXPENDITURE</string>
+    <string name="recent_transactions">Recent Transactions</string>
+    <string name="jay_sharma">Jay Sharma</string>
+    <string name="all_transactions">All Transactions</string>
 </resources>

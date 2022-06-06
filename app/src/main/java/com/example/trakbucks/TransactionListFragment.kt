@@ -28,7 +28,6 @@ class TransactionListFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var tranRecyclerView: RecyclerView
-    private lateinit var tranList: ArrayList<Transaction>
     lateinit var profImageid: Array<Int>
     lateinit var names: Array<String>
     lateinit var amounts: Array<String>
