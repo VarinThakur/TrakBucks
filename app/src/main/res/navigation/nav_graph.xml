@@ -9,12 +9,21 @@
         android:id="@+id/dashboard"
         android:name="com.example.trakbucks.Dashboard"
         android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboard_to_transactionListFragment"
+            app:destination="@id/transactionListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/transactionListFragment"
         android:name="com.example.trakbucks.TransactionListFragment"
         android:label="fragment_transaction_list"
-        tools:layout="@layout/fragment_transaction_list"/>
+        tools:layout="@layout/fragment_transaction_list">
+        <action
+            android:id="@+id/action_transactionListFragment_to_dashboard"
+            app:destination="@id/dashboard" />
+    </fragment>
+        
     <fragment
         android:id="@+id/profileScreen"
         tools:layout="@layout/fragment_profile_screen"

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/dashboard"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/dashboard"/>
+    <item
+        android:id="@+id/transactionListFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_attach_money_24"
+        android:title="@string/all_transactions"/>
+    <item
+        android:id="@+id/settings_page"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="@string/settings"/>
+
+</menu>
