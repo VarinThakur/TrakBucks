@@ -71,10 +71,10 @@
                     android:id="@+id/profile_image"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:padding="4sp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/round_button"
+                    android:padding="4sp"
                     android:src="@drawable/_abstract_user_icon_1" />
 
                 <ImageButton
@@ -107,7 +107,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/enter_your_name"
+                        tools:text="@string/enter_your_name"
                         android:textSize="20sp"
                         android:inputType="textPersonName" />
 

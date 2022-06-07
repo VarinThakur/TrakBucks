@@ -86,7 +86,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:text="@string/enter_your_full_name"
+                    tools:text="@string/enter_your_full_name"
                     android:textSize="20sp"
                     android:layout_height="wrap_content" />
 
