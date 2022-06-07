@@ -10,123 +10,108 @@
     <ScrollView
         android:layout_width="match_parent"
         android:fillViewport="true"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/cl"
-            android:paddingStart="30sp"
-            android:paddingEnd="30sp"
-            android:paddingTop="40dp"
-            android:minHeight="800sp">
+            android:id="@+id/rl_profile_screen"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp">
 
             <RelativeLayout
                 android:id="@+id/rl_profile_back"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@+id/rl_profile_image_name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-
-                <ImageButton
-                    android:id="@+id/backButton"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_alignParentStart="true"
-                    android:background="@drawable/round_button"
-                    android:src="@drawable/arrow_back_ios_119432" />
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp">
 
                 <TextView
-                    android:id="@+id/signUpText"
+                    android:id="@+id/myProfileText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="@string/my_profile"
                     android:textSize="20sp" />
 
-                <ImageButton
+                <com.mikhaellopez.circularimageview.CircularImageView
                     android:id="@+id/settingsButton"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_alignParentEnd="true"
-                    android:background="@drawable/round_button"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/ic_baseline_settings_24" />
 
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/rl_profile_image_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/rl_profile_image_name"
-                android:orientation="vertical"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                android:layout_below="@id/rl_profile_back">
 
-                <ImageView
+                <com.mikhaellopez.circularimageview.CircularImageView
                     android:id="@+id/profile_image"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/round_button"
-                    android:padding="4sp"
-                    android:src="@drawable/_abstract_user_icon_1" />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_baseline_person_24" />
 
-                <ImageButton
-                    android:layout_width="30sp"
-                    android:layout_height="30sp"
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:layout_width="48sp"
+                    android:layout_height="48sp"
                     android:layout_alignEnd="@id/profile_image"
-                    android:padding="2dp"
                     android:layout_alignBottom="@id/profile_image"
-                    android:background="@drawable/round_button"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/ic_baseline_camera_alt_24" />
 
                 <TextView
                     android:id="@+id/name_text"
                     android:layout_width="match_parent"
-                    android:padding="4sp"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/profile_image"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="10dp"
                     android:text="@string/edit_profile_name"
                     android:textSize="20sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/name"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:endIconMode="clear_text"
                     android:layout_below="@id/name_text"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:hint="@string/name">
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="@string/name"
+                    app:endIconMode="clear_text">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        tools:text="@string/enter_your_name"
+                        android:inputType="textPersonName"
                         android:textSize="20sp"
-                        android:inputType="textPersonName" />
+                        tools:text="@string/enter_your_name" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
             </RelativeLayout>
 
             <Button
+                android:id="@+id/save_changes_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/save_changes_button"
                 android:text="@string/save_changes"
-                app:layout_constraintTop_toBottomOf="@id/rl_profile_image_name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:layout_below="@id/rl_profile_image_name"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"/>
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
 
 
     </ScrollView>
