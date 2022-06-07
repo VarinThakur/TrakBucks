@@ -10,24 +10,25 @@
     <ScrollView
         android:layout_width="match_parent"
         android:fillViewport="true"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/cl"
-            android:minHeight="600sp"
             android:paddingStart="30sp"
-            android:paddingTop="40sp"
-            android:paddingEnd="30sp">
+            android:paddingEnd="30sp"
+            android:paddingTop="40dp"
+            android:minHeight="800sp">
 
             <RelativeLayout
-                android:layout_width="match_parent"
                 android:id="@+id/rl_profile_back"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/rl_profile_image_name"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                app:layout_constraintTop_toTopOf="parent">
 
 
                 <ImageButton
@@ -42,18 +43,17 @@
                     android:id="@+id/signUpText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
                     android:text="@string/my_profile"
-                    android:textSize="20sp"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true" />
+                    android:textSize="20sp" />
 
                 <ImageButton
                     android:id="@+id/settingsButton"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:src="@drawable/ic_baseline_settings_24"
+                    android:layout_alignParentEnd="true"
                     android:background="@drawable/round_button"
-                    android:layout_alignParentEnd="true" />
+                    android:src="@drawable/ic_baseline_settings_24" />
 
             </RelativeLayout>
 
