@@ -19,18 +19,16 @@
             android:layout_marginTop="30dp"
             android:layout_marginRight="20dp">
 
-            <ImageButton
+            <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/profile_image"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
-                android:adjustViewBounds="true"
-                android:background="@drawable/round_button"
+                android:contentDescription="@string/set_your_profile_photo"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_baseline_person_24"
-                android:contentDescription="@string/set_your_profile_photo" />
+                android:src="@drawable/ic_baseline_person_24" />
 
             <TextView
                 android:id="@+id/name_text"
@@ -50,12 +48,10 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-
-
                 android:layout_toEndOf="@+id/profile_image"
                 android:text="@string/welcome_back" />
 
-            <ImageButton
+            <com.mikhaellopez.circularimageview.CircularImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_alignParentEnd="true"
@@ -63,11 +59,9 @@
                 android:layout_marginTop="20dp"
 
                 android:layout_marginBottom="20dp"
-                android:adjustViewBounds="true"
-                android:background="@drawable/round_button"
+                android:contentDescription="@string/notifications"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_baseline_notifications_none_24"
-                android:contentDescription="@string/notifications" />
+                android:src="@drawable/ic_baseline_notifications_none_24" />
 
         </RelativeLayout>
 
@@ -86,8 +80,10 @@
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1"
                     app:cardElevation="6sp"
+                    app:cardUseCompatPadding="true"
                     app:cardCornerRadius="12sp"
-                    android:layout_margin="12sp"
+                    android:layout_marginStart="12sp"
+                    android:layout_marginEnd="12sp"
                     >
                     <RelativeLayout
                         android:orientation="vertical"
@@ -110,7 +106,7 @@
                             android:layout_marginStart="10sp"
                             android:layout_toEndOf="@id/up_image"
                             android:text="@string/income"
-                            android:textSize="20sp"/>
+                            android:textSize="20sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -132,8 +128,10 @@
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1"
                     app:cardElevation="6sp"
+                    app:cardUseCompatPadding="true"
                     app:cardCornerRadius="12sp"
-                    android:layout_margin="12sp"
+                    android:layout_marginStart="12sp"
+                    android:layout_marginEnd="12sp"
                     >
                     <RelativeLayout
                         android:orientation="vertical"
@@ -182,14 +180,17 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/recent_transactions_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/recent_transactions"
-                android:id="@+id/recent_transactions_text"
-                android:textSize="30sp"
-                android:gravity="center"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="20sp"/>
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginEnd="20sp"
+                android:layout_marginBottom="20sp"
+                android:gravity="center"
+                android:text="@string/recent_transactions"
+                android:textSize="25sp" />
 
 
             <LinearLayout
@@ -198,18 +199,18 @@
                 android:layout_below="@id/recent_transactions_text"
                 android:layout_marginStart="20sp"
                 android:layout_marginEnd="20sp"
-                android:orientation="vertical"
-                android:layout_marginBottom="20sp">
+                android:layout_marginBottom="20sp"
+                android:orientation="vertical">
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="12sp"
-                    app:cardElevation="6sp"
-                    android:layout_marginBottom="20sp"
                     android:layout_marginStart="5sp"
+                    android:layout_marginTop="5sp"
                     android:layout_marginEnd="5sp"
-                    android:layout_marginTop="5sp">
+                    android:layout_marginBottom="20sp"
+                    app:cardCornerRadius="12sp"
+                    app:cardElevation="6sp">
 
                     <TableLayout
                         android:layout_width="match_parent"
@@ -218,34 +219,36 @@
                         android:columnOrderPreserved="true"
                         android:stretchColumns="*">
 
-                        <TableRow tools:ignore="UselessParent">
+                        <TableRow tools:ignore="UselessParent"
+                            android:gravity="center_vertical" >
 
-                            <ImageView
-                                android:layout_width="0dp"
+                            <com.mikhaellopez.circularimageview.CircularImageView
+                                android:layout_width="80dp"
                                 android:layout_height="80sp"
                                 android:layout_columnWeight="1"
-                                android:layout_margin="20sp"
+                                android:layout_margin="10sp"
                                 android:adjustViewBounds="true"
-                                android:background="@drawable/round_button"
+                                android:contentDescription="@string/todo"
                                 android:scaleType="fitCenter"
-                                android:src="@drawable/ic_baseline_person_24"
-                                android:contentDescription="@string/todo" />
+                                android:src="@drawable/ic_baseline_person_24" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="120dp"
                                 android:layout_height="wrap_content"
                                 android:layout_columnWeight="1"
-                                android:layout_margin="20sp"
+                                android:layout_margin="10sp"
                                 android:text="@string/jay_sharma"
+                                android:textAlignment="center"
                                 android:textSize="20sp" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:layout_rowWeight="1"
                                 android:layout_columnWeight="1"
-                                android:layout_margin="20sp"
+                                android:layout_margin="10sp"
                                 android:text="@string/_20000"
+                                android:textAlignment="center"
                                 android:textSize="20sp" />
 
                         </TableRow>
@@ -259,11 +262,12 @@
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="12sp"
-                    app:cardElevation="6sp"
-                    android:layout_marginBottom="20sp"
                     android:layout_marginStart="5sp"
-                    android:layout_marginEnd="5sp">
+                    android:layout_marginTop="5sp"
+                    android:layout_marginEnd="5sp"
+                    android:layout_marginBottom="20sp"
+                    app:cardCornerRadius="12sp"
+                    app:cardElevation="6sp">
 
                     <TableLayout
                         android:layout_width="match_parent"
@@ -272,34 +276,36 @@
                         android:columnOrderPreserved="true"
                         android:stretchColumns="*">
 
-                        <TableRow tools:ignore="UselessParent">
+                        <TableRow tools:ignore="UselessParent"
+                            android:gravity="center_vertical" >
 
-                            <ImageView
-                                android:layout_width="0dp"
+                            <com.mikhaellopez.circularimageview.CircularImageView
+                                android:layout_width="80dp"
                                 android:layout_height="80sp"
                                 android:layout_columnWeight="1"
-                                android:layout_margin="20sp"
+                                android:layout_margin="10sp"
                                 android:adjustViewBounds="true"
-                                android:background="@drawable/round_button"
+                                android:contentDescription="@string/todo"
                                 android:scaleType="fitCenter"
-                                android:src="@drawable/ic_baseline_person_24"
-                                android:contentDescription="@string/todo" />
+                                android:src="@drawable/ic_baseline_person_24" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="120dp"
                                 android:layout_height="wrap_content"
                                 android:layout_columnWeight="1"
-                                android:layout_margin="20sp"
+                                android:layout_margin="10sp"
                                 android:text="@string/jay_sharma"
+                                android:textAlignment="center"
                                 android:textSize="20sp" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:layout_rowWeight="1"
                                 android:layout_columnWeight="1"
-                                android:layout_margin="20sp"
+                                android:layout_margin="10sp"
                                 android:text="@string/_20000"
+                                android:textAlignment="center"
                                 android:textSize="20sp" />
 
                         </TableRow>
@@ -313,11 +319,12 @@
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="12sp"
-                    app:cardElevation="6sp"
-                    android:layout_marginBottom="20sp"
                     android:layout_marginStart="5sp"
-                    android:layout_marginEnd="5sp">
+                    android:layout_marginTop="5sp"
+                    android:layout_marginEnd="5sp"
+                    android:layout_marginBottom="20sp"
+                    app:cardCornerRadius="12sp"
+                    app:cardElevation="6sp">
 
                     <TableLayout
                         android:layout_width="match_parent"
@@ -326,34 +333,36 @@
                         android:columnOrderPreserved="true"
                         android:stretchColumns="*">
 
-                        <TableRow tools:ignore="UselessParent">
+                        <TableRow tools:ignore="UselessParent"
+                            android:gravity="center_vertical" >
 
-                            <ImageView
-                                android:layout_width="0dp"
+                            <com.mikhaellopez.circularimageview.CircularImageView
+                                android:layout_width="80dp"
                                 android:layout_height="80sp"
                                 android:layout_columnWeight="1"
-                                android:layout_margin="20sp"
+                                android:layout_margin="10sp"
                                 android:adjustViewBounds="true"
-                                android:background="@drawable/round_button"
+                                android:contentDescription="@string/todo"
                                 android:scaleType="fitCenter"
-                                android:src="@drawable/ic_baseline_person_24"
-                                android:contentDescription="@string/todo" />
+                                android:src="@drawable/ic_baseline_person_24" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="120dp"
                                 android:layout_height="wrap_content"
                                 android:layout_columnWeight="1"
-                                android:layout_margin="20sp"
+                                android:layout_margin="10sp"
                                 android:text="@string/jay_sharma"
+                                android:textAlignment="center"
                                 android:textSize="20sp" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:layout_rowWeight="1"
                                 android:layout_columnWeight="1"
-                                android:layout_margin="20sp"
+                                android:layout_margin="10sp"
                                 android:text="@string/_20000"
+                                android:textAlignment="center"
                                 android:textSize="20sp" />
 
                         </TableRow>
@@ -363,6 +372,10 @@
 
 
                 </com.google.android.material.card.MaterialCardView>
+
+
+
+
 
 
             </LinearLayout>

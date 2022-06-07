@@ -12,90 +12,78 @@
         android:fillViewport="true"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <RelativeLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="30sp"
-            android:paddingTop="40sp"
-            android:paddingEnd="30sp">
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
 
             <RelativeLayout
-                android:layout_width="match_parent"
                 android:id="@+id/rl_settings_back"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp">
 
-
-                <ImageButton
-                    android:id="@+id/backButton"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/round_button"
-                    android:src="@drawable/arrow_back_ios_119432" />
 
                 <TextView
-                    android:id="@+id/signUpText"
+                    android:id="@+id/settingsText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="@string/settings"
-                    android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="20sp" />
 
             </RelativeLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/rl_theme_currency_settings"
-                app:layout_constraintTop_toTopOf="@id/rl_settings_back"
+                android:id="@+id/make_the_app_yours_text"
                 android:text="@string/make_the_app_yours"
-                android:textSize="30sp" />
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="30sp"
+                android:layout_below="@id/rl_settings_back" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
                 android:id="@+id/rl_theme_currency_settings"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent">
+                android:layout_below="@id/make_the_app_yours_text">
 
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/theme_dropdown"
-                    android:padding="4dp"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:startIconDrawable="@drawable/icon_scale_themes"
-                    android:hint="@string/theme">
+                    android:hint="@string/theme"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    app:startIconDrawable="@drawable/icon_scale_themes">
 
                     <AutoCompleteTextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:inputType="none"
-                        android:textSize="20sp"
-                        android:text="@string/select_your_theme" />
+                        android:text="@string/select_your_theme"
+                        android:textSize="20sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/currency_dropdown"
-                    android:padding="4dp"
                     android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_height="wrap_content"
                     app:startIconDrawable="@drawable/icon_scale_rupee"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_below="@id/theme_dropdown"
-                    android:hint="Currency">
+                    android:hint="@string/currency">
 
                     <AutoCompleteTextView
                         android:layout_width="match_parent"
@@ -114,13 +102,13 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/save_changes_button"
                 android:text="@string/save_changes"
-                app:layout_constraintTop_toBottomOf="@id/rl_theme_currency_settings"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:layout_below="@id/rl_theme_currency_settings"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"/>
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
 
     </ScrollView>
+
 </layout>

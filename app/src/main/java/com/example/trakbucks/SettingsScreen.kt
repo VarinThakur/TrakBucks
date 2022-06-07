@@ -34,8 +34,8 @@ class SettingsScreen : Fragment() {
         (binding.themeDropdown.editText as? AutoCompleteTextView)?.setAdapter(adapter)
 
         val items2 = listOf("Rupees","Dollar","Euros")
-        val adapter2 = ArrayAdapter(requireContext(), R.layout.list_item_dropdown, items)
-        (binding.currencyDropdown.editText as? AutoCompleteTextView)?.setAdapter(adapter)
+        val adapter2 = ArrayAdapter(requireContext(), R.layout.list_item_dropdown, items2)
+        (binding.currencyDropdown.editText as? AutoCompleteTextView)?.setAdapter(adapter2)
     }
 
     override fun onDestroyView() {

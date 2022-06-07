@@ -23,7 +23,7 @@
             android:id="@+id/action_transactionListFragment_to_dashboard"
             app:destination="@id/dashboard" />
     </fragment>
-        
+
     <fragment
         android:id="@+id/profileScreen"
         tools:layout="@layout/fragment_profile_screen"
@@ -39,4 +39,9 @@
         android:name="com.example.trakbucks.SignUpScreen"
         tools:layout="@layout/fragment_sign_up_screen"
         android:label="SignUpScreen" />
+    <fragment
+        android:id="@+id/addTransactionScreen"
+        android:name="com.example.trakbucks.AddTransactionScreen"
+        android:label="fragment_add_transaction"
+        tools:layout="@layout/fragment_add_transaction" />
 </navigation>

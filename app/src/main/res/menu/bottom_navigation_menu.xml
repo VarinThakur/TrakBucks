@@ -11,7 +11,7 @@
         android:icon="@drawable/ic_baseline_attach_money_24"
         android:title="@string/all_transactions"/>
     <item
-        android:id="@+id/settings_page"
+        android:id="@+id/settingsScreen"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_settings_24"
         android:title="@string/settings"/>
