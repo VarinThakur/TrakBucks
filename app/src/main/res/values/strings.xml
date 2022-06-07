@@ -44,4 +44,11 @@
     <string name="jay_sharma">Jay Sharma</string>
     <string name="all_transactions">All Transactions</string>
     <string name="dashboard">dashboard</string>
+    <string name="add_a_transaction">Add a Transaction</string>
+    <string name="add_image">Add Image</string>
+    <string name="enter_amount">Enter Amount.</string>
+    <string name="add_name">Add Name</string>
+    <string name="add_amount">Add Amount</string>
+    <string name="amount">Amount</string>
+    <string name="add">ADD</string>
 </resources>
