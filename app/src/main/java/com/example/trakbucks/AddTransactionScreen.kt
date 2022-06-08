@@ -1,6 +1,8 @@
 package com.example.trakbucks
 
+import android.app.DatePickerDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,8 +12,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.trakbucks.databinding.FragmentAddTransactionBinding
-import com.example.trakbucks.databinding.FragmentDashboardBinding
-import com.example.trakbucks.databinding.FragmentSettingsScreenBinding
+import java.util.*
+import com.example.trakbucks.TimePickerFragment
 
 class AddTransactionScreen : Fragment() {
     private var _binding : FragmentAddTransactionBinding? = null
@@ -25,6 +27,7 @@ class AddTransactionScreen : Fragment() {
 
 //        binding.addTransactionAmount.error = "Amount can't be 0."
 //        binding.addTransactionName.error = "Name can't be empty."
+
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,5 +56,49 @@ class AddTransactionScreen : Fragment() {
 
     fun addImage(){
         Toast.makeText(activity, "Added image successfully", Toast.LENGTH_SHORT).show()
+    }
+
+    fun setDate(){
+        // create new instance of DatePickerFragment
+        val datePickerFragment = DatePickerFragment()
+        val supportFragmentManager = requireActivity().supportFragmentManager
+
+        // we have to implement setFragmentResultListener
+        supportFragmentManager.setFragmentResultListener(
+            "REQUEST_KEY",
+            viewLifecycleOwner
+        ) { resultKey, bundle ->
+            if (resultKey == "REQUEST_KEY") {
+                val date = bundle.getString("SELECTED_DATE")
+                binding.addDate.editText!!.setText(date)
+            }
+        }
+
+        // show
+        datePickerFragment.show(supportFragmentManager, "DatePickerFragment")
+    }
+
+    fun setTime(){
+        // create new instance of TimePickerFragment
+        val timePickerFragment = TimePickerFragment()
+        val supportFragmentManager = requireActivity().supportFragmentManager
+
+        // we have to implement setFragmentResultListener
+        supportFragmentManager.setFragmentResultListener(
+            "REQUEST_KEY",
+            viewLifecycleOwner
+        ) { resultKey, bundle ->
+            if (resultKey == "REQUEST_KEY") {
+                val time = bundle.getString("SELECTED_TIME")
+                binding.addTime.editText!!.setText(time)
+            }
+        }
+
+        //show
+        timePickerFragment.show(supportFragmentManager, "TimePickerFragment")
+    }
+
+    fun cancelTransaction(){
+        findNavController().navigate(R.id.action_addTransactionScreen_to_transactionListFragment)
     }
 }

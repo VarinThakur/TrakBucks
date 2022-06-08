@@ -7,6 +7,9 @@
         <variable
             name="addTransactionfragment"
             type="com.example.trakbucks.AddTransactionScreen" />
+        <variable
+            name="timePickerFragment"
+            type="com.example.trakbucks.TimePickerFragment" />
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -111,7 +114,7 @@
                 android:layout_below="@id/add_transaction_image"
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
                 android:text="@string/add_name"
@@ -119,23 +122,22 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/add_transaction_name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                app:errorEnabled="true"
-                app:startIconDrawable="@drawable/icons8_name_24"
-                android:layout_centerHorizontal="true"
-                app:endIconMode="clear_text"
                 android:layout_below="@id/add_name_text"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:hint="@string/name">
+                android:layout_centerHorizontal="true"
+                android:hint="@string/name"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/icons8_name_24">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:text="@string/enter_your_name"
+                    android:inputType="textPersonName"
                     android:textSize="20sp"
-                    android:inputType="textPersonName" />
+                    tools:text="@string/enter_your_name" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -154,14 +156,14 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/add_transaction_amount"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:errorEnabled="true"
-                android:layout_centerHorizontal="true"
-                app:startIconDrawable="@drawable/icons8_money_24"
                 android:layout_below="@id/add_amount_text"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:hint="@string/amount">
+                android:layout_centerHorizontal="true"
+                android:hint="@string/amount"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/icons8_money_24">
 
                 <AutoCompleteTextView
                     android:layout_width="match_parent"
@@ -172,17 +174,105 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
+            <TextView
+                android:id="@+id/time_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/add_transaction_amount"
+                android:layout_below="@+id/add_transaction_amount"
                 android:layout_centerHorizontal="true"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="40dp"
-                android:layout_marginBottom="40dp"
-                android:onClick="@{()->addTransactionfragment.addTransaction()}"
-                android:text="@string/add" />
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/add_time"
+                android:textSize="20sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/add_time"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time_text"
+                android:layout_centerHorizontal="true"
+                android:hint="@string/time"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/ic_baseline_access_time_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->addTransactionfragment.setTime()}"
+                    android:inputType="time"
+                    android:textSize="20sp"
+                    tools:text="@string/enter_the_time" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/add_date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_time"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/add_date"
+                android:textSize="20sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/add_date"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_date_text"
+                android:layout_centerHorizontal="true"
+                android:hint="@string/date"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/ic_baseline_date_range_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="time"
+                    android:onClick="@{()->addTransactionfragment.setDate()}"
+                    android:textSize="20sp"
+                    tools:text="Enter the date." />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/add_date">
+
+
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/add_transaction_in_list"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="40dp"
+                    android:layout_toEndOf="@id/cancel_button_in_transaction"
+                    android:onClick="@{()->addTransactionfragment.addTransaction()}"
+                    android:text="@string/add" />
+
+                <Button
+                    android:id="@+id/cancel_button_in_transaction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginBottom="40dp"
+                    android:onClick="@{()->addTransactionfragment.cancelTransaction()}"
+                    android:text="@string/cancel"
+                    style="?attr/materialButtonOutlinedStyle" />
+
+
+            </RelativeLayout>
 
         </RelativeLayout>
 

@@ -54,4 +54,10 @@
     <string name="set_transaction_type">Set Transaction Type</string>
     <string name="credit">Credit</string>
     <string name="debit">Debit</string>
+    <string name="add_time">Add Time</string>
+    <string name="time">Time</string>
+    <string name="enter_the_time">Enter the time.</string>
+    <string name="add_date">Add Date</string>
+    <string name="date">Date</string>
+    <string name="cancel">Cancel</string>
 </resources>
