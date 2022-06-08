@@ -1,47 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".TransactionListFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
+    <data>
+        <variable
+            name="transactionListFragment"
+            type="com.example.trakbucks.TransactionListFragment" />
+    </data>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:text="@string/all_transactions"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:layout_marginStart="20sp"
-        android:layout_marginEnd="20sp"
-        android:layout_marginTop="30sp"
-        android:id="@+id/all_transactions_text"/>
+        android:layout_height="match_parent"
+        tools:context=".TransactionListFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/all_tranactions_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_marginBottom="20dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/all_transactions_text"
-        android:padding="20sp"
-        tools:listitem="@layout/transaction" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="@string/all_transactions"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            android:layout_marginTop="30sp"
+            android:id="@+id/all_transactions_text" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_transaction_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@id/all_tranactions_recycler_view"
-        android:layout_alignBottom="@id/all_tranactions_recycler_view"
-        android:layout_marginStart="20sp"
-        android:layout_marginTop="20sp"
-        android:layout_marginEnd="20sp"
-        android:layout_marginBottom="20sp"
-        android:backgroundTint="@color/material_dynamic_primary70"
-        android:contentDescription="@string/todo"
-        android:elevation="6sp"
-        android:src="@drawable/ic_baseline_add_24"
-        app:fabSize="normal" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/all_tranactions_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/all_transactions_text"
+            android:padding="20sp"
+            tools:listitem="@layout/transaction" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_transaction_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/all_tranactions_recycler_view"
+            android:layout_alignBottom="@id/all_tranactions_recycler_view"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginEnd="20sp"
+            android:layout_marginBottom="20sp"
+            android:backgroundTint="@color/material_dynamic_primary70"
+            android:contentDescription="@string/todo"
+            android:elevation="6sp"
+            android:src="@drawable/ic_baseline_add_24"
+            app:fabSize="normal"
+            android:onClick="@{()->transactionListFragment.navigate()}"/>
 
 
-</RelativeLayout>
+    </RelativeLayout>
+</layout>

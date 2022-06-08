@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.trakbucks.databinding.FragmentAddTransactionBinding
+import com.example.trakbucks.databinding.FragmentDashboardBinding
 import com.example.trakbucks.databinding.FragmentSettingsScreenBinding
 
 class AddTransactionScreen : Fragment() {
@@ -28,12 +31,27 @@ class AddTransactionScreen : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentAddTransactionBinding.inflate(inflater, container, false)
-        return binding.root
+        val fragmentBinding = FragmentAddTransactionBinding.inflate(inflater, container, false)
+        _binding = fragmentBinding
+        return fragmentBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding?.addTransactionfragment = this
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun addTransaction(){
+        Toast.makeText(activity, "Added Transaction successfully", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(R.id.action_addTransactionScreen_to_transactionListFragment)
+    }
+
+    fun addImage(){
+        Toast.makeText(activity, "Added image successfully", Toast.LENGTH_SHORT).show()
     }
 }

@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import com.example.trakbucks.databinding.FragmentDashboardBinding
 import com.example.trakbucks.databinding.FragmentSettingsScreenBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -56,9 +59,22 @@ class SettingsScreen : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentSettingsScreenBinding.inflate(inflater, container, false)
-        return binding.root
+        val fragmentBinding = FragmentSettingsScreenBinding.inflate(inflater, container, false)
+        _binding = fragmentBinding
+        return fragmentBinding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding?.settingsFragment = this
+    }
+
+    fun saveChanges()
+    {
+        Toast.makeText(activity, "Changes in settings saved!", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(R.id.action_settingsScreen_to_dashboard)
+    }
+
 
     companion object {
         /**
