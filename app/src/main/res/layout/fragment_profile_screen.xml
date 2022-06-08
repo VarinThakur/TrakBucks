@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="profileScreenFragment"
+            type="com.example.trakbucks.ProfileScreen" />
     </data>
 
     <ScrollView
@@ -40,7 +42,8 @@
                     android:layout_height="48dp"
                     android:layout_alignParentEnd="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_baseline_settings_24" />
+                    android:src="@drawable/ic_baseline_settings_24"
+                    android:onClick="@{()->profileScreenFragment.navigateSettings()}"/>
 
             </RelativeLayout>
 
@@ -59,7 +62,9 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_baseline_person_24" />
+                    android:src="@drawable/ic_baseline_person_24"
+                    app:civ_border="true"
+                    app:civ_border_color="@color/black"/>
 
                 <com.mikhaellopez.circularimageview.CircularImageView
                     android:layout_width="48sp"
@@ -67,7 +72,8 @@
                     android:layout_alignEnd="@id/profile_image"
                     android:layout_alignBottom="@id/profile_image"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_baseline_camera_alt_24" />
+                    android:src="@drawable/ic_baseline_camera_alt_24"
+                    android:onClick="@{()->profileScreenFragment.addImage()}"/>
 
                 <TextView
                     android:id="@+id/name_text"
@@ -105,10 +111,11 @@
                 android:id="@+id/save_changes_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/save_changes"
                 android:layout_below="@id/rl_profile_image_name"
                 android:layout_marginTop="40dp"
-                android:layout_marginBottom="40dp"/>
+                android:layout_marginBottom="40dp"
+                android:text="@string/save_changes"
+                android:onClick="@{()->profileScreenFragment.saveChanges()}"/>
 
 
         </RelativeLayout>

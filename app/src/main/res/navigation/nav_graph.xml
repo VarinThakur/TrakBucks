@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_dashboard_to_transactionListFragment"
             app:destination="@id/transactionListFragment" />
+        <action
+            android:id="@+id/action_dashboard_to_profileScreen"
+            app:destination="@id/profileScreen" />
     </fragment>
     <fragment
         android:id="@+id/transactionListFragment"
@@ -22,18 +25,36 @@
         <action
             android:id="@+id/action_transactionListFragment_to_dashboard"
             app:destination="@id/dashboard" />
+        <action
+            android:id="@+id/action_transactionListFragment_to_addTransactionScreen"
+            app:destination="@id/addTransactionScreen" />
     </fragment>
 
     <fragment
         android:id="@+id/profileScreen"
         tools:layout="@layout/fragment_profile_screen"
         android:name="com.example.trakbucks.ProfileScreen"
-        android:label="ProfileScreen" />
+        android:label="ProfileScreen" >
+        <action
+            android:id="@+id/action_profileScreen_to_settingsScreen"
+            app:destination="@id/settingsScreen" />
+        <action
+            android:id="@+id/action_profileScreen_to_dashboard"
+            app:destination="@id/dashboard"
+            app:popUpTo="@id/dashboard"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/settingsScreen"
         android:name="com.example.trakbucks.SettingsScreen"
         tools:layout="@layout/fragment_settings_screen"
-        android:label="SettingsScreen" />
+        android:label="SettingsScreen" >
+        <action
+            android:id="@+id/action_settingsScreen_to_dashboard"
+            app:destination="@id/dashboard"
+            app:popUpTo="@id/dashboard"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/signUpScreen"
         android:name="com.example.trakbucks.SignUpScreen"
@@ -43,5 +64,11 @@
         android:id="@+id/addTransactionScreen"
         android:name="com.example.trakbucks.AddTransactionScreen"
         android:label="fragment_add_transaction"
-        tools:layout="@layout/fragment_add_transaction" />
+        tools:layout="@layout/fragment_add_transaction" >
+        <action
+            android:id="@+id/action_addTransactionScreen_to_transactionListFragment"
+            app:destination="@id/transactionListFragment"
+            app:popUpTo="@id/transactionListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

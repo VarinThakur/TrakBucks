@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.trakbucks.databinding.FragmentProfileScreenBinding
 import com.example.trakbucks.databinding.FragmentSettingsScreenBinding
 
@@ -39,12 +41,35 @@ class ProfileScreen : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile_screen, container, false)
+        val fragmentBinding = FragmentProfileScreenBinding.inflate(inflater, container, false)
+        _binding = fragmentBinding
+        return fragmentBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding?.profileScreenFragment = this
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun navigateSettings()
+    {
+        findNavController().navigate(R.id.action_profileScreen_to_settingsScreen)
+    }
+
+    fun saveChanges()
+    {
+        Toast.makeText(activity, "Changes in profile saved!", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(R.id.action_profileScreen_to_dashboard)
+    }
+
+    fun addImage()
+    {
+        Toast.makeText(activity, "Proflie image updated", Toast.LENGTH_SHORT).show()
     }
 
     companion object {

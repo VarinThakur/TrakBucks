@@ -23,6 +23,13 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         setupWithNavController(bottomNavigationView, navController)
 
+
+
+        bottomNavigationView.setOnItemReselectedListener { item ->
+            // Pop everything up to the reselected item
+            val reselectedDestinationId = item.itemId
+            navController.popBackStack(reselectedDestinationId, inclusive = false)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
