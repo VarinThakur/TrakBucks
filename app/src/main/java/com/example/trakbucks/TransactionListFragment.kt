@@ -5,11 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trakbucks.databinding.FragmentDashboardBinding
 import com.example.trakbucks.databinding.FragmentTransactionListBinding
+import com.example.trakbucks.model.TransactionViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,10 +31,16 @@ class TransactionListFragment : Fragment() {
     private var _binding: FragmentTransactionListBinding? = null
     private val binding get() = _binding!!
 
+    private val sharedViewModel: TransactionViewModel by activityViewModels()
+
     private lateinit var tranRecyclerView: RecyclerView
     lateinit var profImageid: Array<Int>
     lateinit var names: Array<String>
     lateinit var amounts: Array<String>
+    lateinit var dates: Array<String>
+    lateinit var times: Array<String>
+    lateinit var types: Array<Int>
+
     lateinit var allTransactions: ArrayList<Transaction>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -83,6 +91,36 @@ class TransactionListFragment : Fragment() {
             "10000"
         )
 
+        dates = arrayOf(
+            "01 Jun 2022",
+            "02 Jun 2022",
+            "03 Jun 2022",
+            "01 Jun 2022",
+            "02 Jun 2022",
+            "03 Jun 2022",
+            "01 Jun 2022",
+            "02 Jun 2022",
+            "03 Jun 2022",
+            "01 Jun 2022"
+        )
+
+        times = arrayOf(
+            "07:53 PM",
+            "08:23 AM",
+            "10:00 AM",
+            "07:53 PM",
+            "08:23 AM",
+            "10:00 AM",
+            "07:53 PM",
+            "08:23 AM",
+            "10:00 AM",
+            "09:00 AM"
+        )
+
+        types= arrayOf(
+            1,2,1,2,1,2,1,2,1,2
+        )
+
       allTransactions= arrayListOf<Transaction>()
         getData()
 
@@ -93,7 +131,7 @@ class TransactionListFragment : Fragment() {
     private fun getData() {
         for(i in profImageid.indices)
         {
-            val transaction= Transaction(profImageid[i],names[i],amounts[i])
+            val transaction= Transaction(profImageid[i],names[i],amounts[i],dates[i],times[i],types[i])
             allTransactions.add(transaction)
         }
 
@@ -112,7 +150,7 @@ class TransactionListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.transactionListFragment= this
-        tranRecyclerView=binding.allTranactionsRecyclerView
+        tranRecyclerView=binding.allTransactionsRecyclerView
         tranRecyclerView.layoutManager= LinearLayoutManager(context)
         tranRecyclerView.adapter=TransactionListAdapter(allTransactions)
     }

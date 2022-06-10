@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.trakbucks.databinding.FragmentProfileScreenBinding
 import com.example.trakbucks.databinding.FragmentSettingsScreenBinding
+import com.example.trakbucks.model.TransactionViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +29,8 @@ class ProfileScreen : Fragment() {
 
     private var _binding : FragmentProfileScreenBinding? = null
     private val binding get() = _binding!!
+
+    private val sharedViewModel: TransactionViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

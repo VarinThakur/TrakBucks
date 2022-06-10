@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.example.trakbucks.databinding.FragmentSignUpScreenBinding
+import com.example.trakbucks.model.TransactionViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,6 +34,8 @@ class SignUpScreen : Fragment() {
 
     private var _binding : FragmentSignUpScreenBinding? = null
     private val binding get() = _binding!!
+
+    private val sharedViewModel: TransactionViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

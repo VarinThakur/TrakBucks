@@ -22,6 +22,15 @@ class TransactionListAdapter(private val transactionList : ArrayList<Transaction
         holder.profileImage_tran.setImageResource(currentTransaction.personImage)
         holder.name_tran.text= currentTransaction.name
         holder.amount_tran.text=currentTransaction.amount
+        holder.date_tran.text=currentTransaction.date
+        holder.time_tran.text=currentTransaction.time
+
+        when(currentTransaction.type)
+        {
+            1-> holder.type_tran.text="Received From"
+            2-> holder.type_tran.text="Credited To"
+            else -> holder.type_tran.text="Invalid Transaction"
+        }
     }
 
     override fun getItemCount(): Int {
@@ -33,6 +42,9 @@ class TransactionListAdapter(private val transactionList : ArrayList<Transaction
         val profileImage_tran: ImageView = itemView.findViewById(R.id.profile_image_transaction)
         val name_tran: TextView= itemView.findViewById(R.id.name_transaction)
         val amount_tran: TextView= itemView.findViewById(R.id.amount_transaction)
+        val date_tran: TextView= itemView.findViewById(R.id.date_transaction)
+        val time_tran: TextView= itemView.findViewById(R.id.time_transaction)
+        val type_tran: TextView= itemView.findViewById(R.id.type_transaction)
     }
 
 
