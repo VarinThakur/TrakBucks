@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.trakbucks.databinding.FragmentDashboardBinding
 import com.example.trakbucks.databinding.FragmentSettingsScreenBinding
+import com.example.trakbucks.model.TransactionViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,6 +31,8 @@ class SettingsScreen : Fragment() {
 
     private var _binding : FragmentSettingsScreenBinding? = null
     private val binding get() = _binding!!
+
+    private val sharedViewModel: TransactionViewModel by activityViewModels()
 
     override fun onResume() {
         super.onResume()
