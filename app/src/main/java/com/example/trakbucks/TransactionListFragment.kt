@@ -41,6 +41,10 @@ class TransactionListFragment : Fragment() {
     lateinit var times: Array<String>
     lateinit var types: Array<Int>
 
+    var sumAmounts: Int= 0
+    var sumIncome: Int=0
+    var sumExpenditure: Int=0
+
     lateinit var allTransactions: ArrayList<Transaction>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -155,6 +159,17 @@ class TransactionListFragment : Fragment() {
         tranRecyclerView.adapter=TransactionListAdapter(allTransactions)
     }
 
+    private fun sum(){
+        for(i in amounts.indices)
+        {
+            sumAmounts += amounts[i].toInt()
+            if(types[i]==1)
+                sumIncome+= amounts[i].toInt()
+            else if(types[i]==2)
+                sumExpenditure+= amounts[i].toInt()
+        }
+
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding=null

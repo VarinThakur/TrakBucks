@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.trakbucks.databinding.FragmentDashboardBinding
-import com.example.trakbucks.databinding.FragmentTransactionListBinding
 import com.example.trakbucks.model.TransactionViewModel
 
 // TODO: Rename parameter arguments, choose names that match
@@ -61,6 +60,13 @@ class Dashboard : Fragment() {
 
     fun navigate(){
         findNavController().navigate(R.id.action_dashboard_to_profileScreen)
+    }
+
+    fun setIncome(){
+
+    }
+
+    fun setExpenditure(){
     }
 
     companion object {
