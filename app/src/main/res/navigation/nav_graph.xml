@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/dashboard">
+    app:startDestination="@id/settingsFragment">
 
     <fragment
         android:id="@+id/dashboard"
@@ -71,4 +71,8 @@
             app:popUpTo="@id/transactionListFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.trakbucks.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>

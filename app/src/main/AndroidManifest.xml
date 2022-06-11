@@ -7,7 +7,7 @@
         android:icon="@mipmap/app_icon_v2"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TrakBucks">
+        android:theme="@style/Red">
         <activity
             android:name=".MainActivity"
             android:exported="true">

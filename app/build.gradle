@@ -63,6 +63,7 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1' //View Model
     implementation 'com.google.android.material:material:1.6.1' //Material Library for bottom navigation
+    implementation "androidx.preference:preference-ktx:1.2.0"
     implementation 'com.mikhaellopez:circularimageview:4.3.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

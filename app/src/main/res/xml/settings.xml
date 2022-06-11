@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ListPreference android:key="Theme"
+        android:title="Change Theme"
+        android:summary="Select your Theme"
+        android:icon="@drawable/icon_scale_themes"
+        android:entries="@array/Themes"
+        android:entryValues="@array/Themes"
+        app:defaultValue="Red"  />
+
+    <ListPreference android:key="Currency"
+        android:title="Change Currency"
+        android:summary="Select your Currency"
+        android:entries="@array/Currency"
+        android:entryValues="@array/Currency"
+        app:defaultValue="INR"
+        android:icon="@drawable/icon_scale_rupee" />
+
+</PreferenceScreen>
