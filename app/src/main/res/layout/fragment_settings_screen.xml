@@ -106,8 +106,8 @@
                 android:layout_below="@id/rl_theme_currency_settings"
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="40dp"
-                android:text="@string/save_changes"
-                android:onClick="@{()->settingsFragment.saveChanges()}"/>
+                android:text="@string/save_changes"/>
+<!--                android:onClick="@{()->settingsFragment.saveChanges()}"/>-->
 
 
         </RelativeLayout>

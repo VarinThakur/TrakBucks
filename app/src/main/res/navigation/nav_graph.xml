@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/settingsFragment">
+    app:startDestination="@id/dashboard">
 
     <fragment
         android:id="@+id/dashboard"
@@ -36,25 +36,19 @@
         android:name="com.example.trakbucks.ProfileScreen"
         android:label="ProfileScreen" >
         <action
-            android:id="@+id/action_profileScreen_to_settingsScreen"
-            app:destination="@id/settingsScreen" />
-        <action
             android:id="@+id/action_profileScreen_to_dashboard"
             app:destination="@id/dashboard"
             app:popUpTo="@id/dashboard"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_profileScreen_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsScreen"
         android:name="com.example.trakbucks.SettingsScreen"
         tools:layout="@layout/fragment_settings_screen"
-        android:label="SettingsScreen" >
-        <action
-            android:id="@+id/action_settingsScreen_to_dashboard"
-            app:destination="@id/dashboard"
-            app:popUpTo="@id/dashboard"
-            app:popUpToInclusive="true" />
-    </fragment>
+        android:label="SettingsScreen" />
     <fragment
         android:id="@+id/signUpScreen"
         android:name="com.example.trakbucks.SignUpScreen"
@@ -74,5 +68,6 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.trakbucks.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="SettingsFragment"
+        tools:layout="@xml/settings"/>
 </navigation>

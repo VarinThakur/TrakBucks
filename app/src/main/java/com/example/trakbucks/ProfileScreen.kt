@@ -62,7 +62,7 @@ class ProfileScreen : Fragment() {
 
     fun navigateSettings()
     {
-        findNavController().navigate(R.id.action_profileScreen_to_settingsScreen)
+        findNavController().navigate(R.id.action_profileScreen_to_settingsFragment)
     }
 
     fun saveChanges()

@@ -9,7 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.trakbucks.databinding.FragmentDashboardBinding
+import com.example.trakbucks.data.Transaction
 import com.example.trakbucks.databinding.FragmentTransactionListBinding
 import com.example.trakbucks.model.TransactionViewModel
 
@@ -34,6 +34,7 @@ class TransactionListFragment : Fragment() {
     private val sharedViewModel: TransactionViewModel by activityViewModels()
 
     private lateinit var tranRecyclerView: RecyclerView
+    lateinit var ids: Array<Int>
     lateinit var profImageid: Array<Int>
     lateinit var names: Array<String>
     lateinit var amounts: Array<String>
@@ -55,6 +56,8 @@ class TransactionListFragment : Fragment() {
 
 
         }
+
+        ids= arrayOf(1,2,3,4,5,6,7,8,9,10)
 
         profImageid = arrayOf(
             R.drawable.ic_baseline_person_24,
@@ -135,7 +138,7 @@ class TransactionListFragment : Fragment() {
     private fun getData() {
         for(i in profImageid.indices)
         {
-            val transaction= Transaction(profImageid[i],names[i],amounts[i],dates[i],times[i],types[i])
+            val transaction= Transaction(ids[i],profImageid[i],names[i],amounts[i],dates[i],times[i],types[i])
             allTransactions.add(transaction)
         }
 

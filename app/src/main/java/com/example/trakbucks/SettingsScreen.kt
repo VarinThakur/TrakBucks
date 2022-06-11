@@ -73,11 +73,11 @@ class SettingsScreen : Fragment() {
         binding?.settingsFragment = this
     }
 
-    fun saveChanges()
-    {
-        Toast.makeText(activity, "Changes in settings saved!", Toast.LENGTH_SHORT).show()
-        findNavController().navigate(R.id.action_settingsScreen_to_dashboard)
-    }
+//    fun saveChanges()
+//    {
+//        Toast.makeText(activity, "Changes in settings saved!", Toast.LENGTH_SHORT).show()
+//        findNavController().navigate(R.id.action_settingsScreen_to_dashboard)
+//    }
 
 
     companion object {
