@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="addTransactionfragment"
-            type="com.example.trakbucks.AddTransactionScreen" />
+            name="updateTransactionScreenfragment"
+            type="com.example.trakbucks.UpdateTransactionScreen" />
         <variable
             name="timePickerFragment"
             type="com.example.trakbucks.TimePickerFragment" />
@@ -15,7 +15,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".AddTransactionScreen">
+        tools:context=".UpdateTransactionScreen">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             android:layout_marginLeft="20dp">
 
             <TextView
-                android:id="@+id/add_transaction_text"
+                android:id="@+id/update_transaction_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -32,20 +32,20 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="40dp"
                 android:layout_marginBottom="40dp"
-                android:text="@string/add_a_transaction"
-                android:textSize="30sp" />
+                android:text="@string/update_a_transaction"
+                android:textSize="27sp" />
 
             <TextView
-                android:id="@+id/set_transaction_type_text"
+                android:id="@+id/update_transaction_type_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/add_transaction_text"
+                android:layout_below="@id/update_transaction_text"
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/set_transaction_type"
+                android:text="@string/update_transaction_type"
                 android:textSize="20sp" />
 
             <RadioGroup
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@id/set_transaction_type_text">
+                android:layout_below="@id/update_transaction_type_text">
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/add_image_text"
+                android:id="@+id/update_image_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/radio_group_credit_debit"
@@ -84,14 +84,14 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/add_image"
+                android:text="@string/Update_image"
                 android:textSize="20sp" />
 
             <com.mikhaellopez.circularimageview.CircularImageView
-                android:id="@+id/add_transaction_image"
+                android:id="@+id/update_transaction_image"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_below="@id/add_image_text"
+                android:layout_below="@id/update_image_text"
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="4dp"
@@ -103,31 +103,31 @@
             <com.mikhaellopez.circularimageview.CircularImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_alignEnd="@id/add_transaction_image"
-                android:layout_alignBottom="@id/add_transaction_image"
+                android:layout_alignEnd="@id/update_transaction_image"
+                android:layout_alignBottom="@id/update_transaction_image"
                 android:contentDescription="@string/add_image"
-                android:onClick="@{()->addTransactionfragment.addImage()}"
+                android:onClick="@{()->updateTransactionScreenfragment.updateImage()}"
                 android:src="@drawable/ic_baseline_camera_alt_24" />
 
             <TextView
-                android:id="@+id/add_name_text"
+                android:id="@+id/update_name_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/add_transaction_image"
+                android:layout_below="@id/update_transaction_image"
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/add_name"
+                android:text="@string/update_name"
                 android:textSize="20sp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/add_transaction_name"
+                android:id="@+id/update_transaction_name"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/add_name_text"
+                android:layout_below="@id/update_name_text"
                 android:layout_centerHorizontal="true"
                 android:hint="@string/name"
                 app:endIconMode="clear_text"
@@ -144,24 +144,24 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/add_amount_text"
+                android:id="@+id/update_amount_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/add_transaction_name"
+                android:layout_below="@id/update_transaction_name"
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/add_amount"
+                android:text="@string/update_amount"
                 android:textSize="20sp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/add_transaction_amount"
+                android:id="@+id/update_transaction_amount"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/add_amount_text"
+                android:layout_below="@id/update_amount_text"
                 android:layout_centerHorizontal="true"
                 android:hint="@string/amount"
                 app:errorEnabled="true"
@@ -177,24 +177,24 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/time_text"
+                android:id="@+id/update_time_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/add_transaction_amount"
+                android:layout_below="@+id/update_transaction_amount"
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/add_time"
+                android:text="@string/update_time"
                 android:textSize="20sp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/add_time"
+                android:id="@+id/update_time"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/time_text"
+                android:layout_below="@id/update_time_text"
                 android:layout_centerHorizontal="true"
                 android:hint="@string/time"
                 app:errorEnabled="true"
@@ -203,7 +203,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="@{()->addTransactionfragment.setTime()}"
+                    android:onClick="@{()->updateTransactionScreenfragment.setTime()}"
                     android:inputType="time"
                     android:textSize="20sp"
                     tools:text="@string/enter_the_time" />
@@ -211,24 +211,24 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/add_date_text"
+                android:id="@+id/update_date_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/add_time"
+                android:layout_below="@id/update_time"
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/add_date"
+                android:text="@string/update_date"
                 android:textSize="20sp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/add_date"
+                android:id="@+id/update_date"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/add_date_text"
+                android:layout_below="@id/update_date_text"
                 android:layout_centerHorizontal="true"
                 android:hint="@string/date"
                 app:errorEnabled="true"
@@ -238,7 +238,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="date"
-                    android:onClick="@{()->addTransactionfragment.setDate()}"
+                    android:onClick="@{()->updateTransactionScreenfragment.setDate()}"
                     android:textSize="20sp"
                     tools:text="Enter the date." />
 
@@ -248,18 +248,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@id/add_date">
+                android:layout_below="@id/update_date">
 
 
                 <Button
-                    android:id="@+id/add_transaction_in_list"
+                    android:id="@+id/update_transaction_in_list"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
                     android:layout_marginBottom="40dp"
                     android:layout_toEndOf="@id/cancel_button_in_transaction"
-                    android:onClick="@{()->addTransactionfragment.addTransaction()}"
-                    android:text="@string/add" />
+                    android:onClick="@{()->updateTransactionScreenfragment.updateTransaction()}"
+                    android:text="@string/update" />
 
                 <Button
                     android:id="@+id/cancel_button_in_transaction"
@@ -268,7 +268,7 @@
                     android:layout_marginTop="40dp"
                     android:layout_marginEnd="40dp"
                     android:layout_marginBottom="40dp"
-                    android:onClick="@{()->addTransactionfragment.cancelTransaction()}"
+                    android:onClick="@{()->updateTransactionScreenfragment.cancelTransaction()}"
                     android:text="@string/cancel"
                     style="?attr/materialButtonOutlinedStyle" />
 
