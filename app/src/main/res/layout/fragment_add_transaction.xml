@@ -201,8 +201,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="@{()->addTransactionfragment.setTime()}"
-                    android:inputType="time"
+                    android:onClick="@{()->addTransactionfragment.setTime(true)}"
+                    android:editable="false"
                     android:textSize="20sp"
                     tools:text="@string/enter_the_time" />
 
@@ -235,8 +235,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="time"
-                    android:onClick="@{()->addTransactionfragment.setDate()}"
+                    android:editable="false"
+                    android:onClick="@{()->addTransactionfragment.setDate(true)}"
                     android:textSize="20sp"
                     tools:text="Enter the date." />
 
