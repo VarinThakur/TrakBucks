@@ -31,8 +31,7 @@
                     android:id="@+id/signUpText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
+                    android:layout_centerInParent="true"
                     android:text="@string/sign_up"
                     android:textSize="20sp" />
 
