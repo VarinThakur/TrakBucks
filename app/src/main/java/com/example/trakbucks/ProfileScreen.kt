@@ -1,5 +1,8 @@
 package com.example.trakbucks
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,8 +12,8 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.trakbucks.databinding.FragmentProfileScreenBinding
-import com.example.trakbucks.databinding.FragmentSettingsScreenBinding
 import com.example.trakbucks.model.TransactionViewModel
+import com.github.dhaval2404.imagepicker.ImagePicker
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,6 +34,21 @@ class ProfileScreen : Fragment() {
     private val binding get() = _binding!!
 
     private val sharedViewModel: TransactionViewModel by activityViewModels()
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            //Image Uri will not be null for RESULT_OK
+            val uri: Uri = data?.data!!
+
+            // Use Uri object instead of File to avoid storage permissions
+            binding.profileImage.setImageURI(uri)
+        } else if (resultCode == ImagePicker.RESULT_ERROR) {
+            Toast.makeText(activity, ImagePicker.getError(data), Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(activity, "Task Cancelled", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,7 +91,11 @@ class ProfileScreen : Fragment() {
 
     fun addImage()
     {
-        Toast.makeText(activity, "Proflie image updated", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(activity, "Proflie image updated", Toast.LENGTH_SHORT).show()
+        ImagePicker.with(this)
+            .galleryOnly()	//User can only select image from Gallery
+            .cropSquare()	//Crop square image, its same as crop(1f, 1f)
+            .start()
     }
 
     companion object {
