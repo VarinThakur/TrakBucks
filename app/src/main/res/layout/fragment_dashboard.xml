@@ -7,6 +7,9 @@
         <variable
             name="dashboardFragment"
             type="com.example.trakbucks.Dashboard" />
+        <variable
+            name="viewModel"
+            type="com.example.trakbucks.data.TransactionViewModel" />
     </data>
 
     <ScrollView
@@ -44,11 +47,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/welcome_back"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="1dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="10dp"
                     android:layout_toEndOf="@+id/profile_image"
-                    android:text="@string/viruj_thakur"
-                    android:textSize="30sp" />
+                    android:text="@{viewModel.profileName.toString()}"
+                    android:textSize="30sp"
+                    tools:text="@string/viruj_thakur" />
 
                 <TextView
                     android:id="@+id/welcome_back"
@@ -95,9 +101,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="150sp"
                             android:indeterminateOnly="false"
+                            android:progress="60"
                             android:progressDrawable="@drawable/circle"
-                            tools:progress="60"
-                            android:progress="60"/>
+                            tools:progress="60" />
 
                         <TextView
                             android:id="@+id/income_text"
@@ -116,8 +122,9 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="65sp"
                             android:gravity="center"
-                            android:text="@string/_20000"
-                            android:textSize="20sp" />
+                            android:text="20"
+                            android:textSize="20sp"
+                            tools:text="@string/_20000" />
 
                     </RelativeLayout>
 
@@ -162,10 +169,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="65sp"
                             android:layout_marginStart="10sp"
-                            android:text="@string/_20000"
-                            android:textSize="20sp" />
+                            android:layout_marginTop="65sp"
+                            android:text="20"
+                            android:textSize="20sp"
+                            tools:text="@string/_20000" />
 
                     </RelativeLayout>
 
