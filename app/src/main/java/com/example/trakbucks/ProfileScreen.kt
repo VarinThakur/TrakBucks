@@ -12,7 +12,6 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.trakbucks.databinding.FragmentProfileScreenBinding
-import com.example.trakbucks.model.TransactionViewModel
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.example.trakbucks.data.TransactionViewModel
 
