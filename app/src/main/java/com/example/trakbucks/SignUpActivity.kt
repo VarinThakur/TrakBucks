@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
+import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
+import com.example.trakbucks.data.TransactionViewModel
 import com.example.trakbucks.databinding.ActivitySignUpBinding
 
 
@@ -34,6 +36,7 @@ class SignUpActivity : AppCompatActivity() {
                 }
                 val intent = Intent(this, MainActivity::class.java).apply {
                 }
+                intent.putExtra("Name", binding.name.editText?.text.toString())
                 startActivity(intent)
                 finish()
             }
