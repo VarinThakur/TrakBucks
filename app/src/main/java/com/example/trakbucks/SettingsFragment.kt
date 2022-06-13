@@ -5,16 +5,30 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener
 import android.os.Bundle
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
-import androidx.core.app.ActivityCompat.recreate
+import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 
 
 class SettingsFragment : PreferenceFragmentCompat(), OnSharedPreferenceChangeListener {
-    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setPreferencesFromResource(R.xml.settings, rootKey)
 
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+
+        setPreferencesFromResource(R.xml.settings, rootKey)
         PreferenceManager.getDefaultSharedPreferences(requireContext()).registerOnSharedPreferenceChangeListener(this)
+
+        val examplePreference: Preference? = findPreference("signOut")
+        examplePreference?.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+
+            val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext() /* Activity context */)
+            with(sharedPreferences?.edit())
+            {
+                this?.putString("signOut","false")
+                this?.apply()
+            }
+            activity?.recreate()
+            return@OnPreferenceClickListener true
+        }
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
@@ -39,8 +53,9 @@ class SettingsFragment : PreferenceFragmentCompat(), OnSharedPreferenceChangeLis
                 "EUR"-> {Toast.makeText(activity,"Set to Indian Rupee",LENGTH_SHORT).show()}
             }
         }
-
     }
+
+
 
     override fun onResume() {
         super.onResume()
