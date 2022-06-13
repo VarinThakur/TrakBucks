@@ -5,16 +5,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trakbucks.data.Transaction
+import com.example.trakbucks.data.TransactionViewModel
 import com.google.android.material.card.MaterialCardView
 import com.mikhaellopez.circularimageview.CircularImageView
+import kotlin.coroutines.coroutineContext
 
 class TransactionListAdapter() :RecyclerView.Adapter<TransactionListAdapter.TransactionListViewHolder>()
 {
 
-    private var transactionList = emptyList<Transaction>()
+    private lateinit var myTransactionViewModel: TransactionViewModel
+    var transactionList = emptyList<Transaction>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionListViewHolder {
         val itemView =LayoutInflater.from(parent.context).inflate(R.layout.transaction,parent,false)
@@ -40,6 +45,8 @@ class TransactionListAdapter() :RecyclerView.Adapter<TransactionListAdapter.Tran
             val action = TransactionListFragmentDirections.actionTransactionListFragmentToUpdateTransactionScreen(currentTransaction)
             holder.itemView.findNavController().navigate(action)
         }
+
+
     }
 
     override fun getItemCount(): Int {
@@ -61,6 +68,7 @@ class TransactionListAdapter() :RecyclerView.Adapter<TransactionListAdapter.Tran
         this.transactionList = transactionList
         notifyDataSetChanged()
     }
+
 
 
 }

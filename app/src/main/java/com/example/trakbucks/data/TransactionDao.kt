@@ -12,6 +12,12 @@ interface TransactionDao {
     @Update
     suspend fun updateTransaction(transaction: Transaction)
 
+    @Delete
+    suspend fun deleteTransaction(transaction: Transaction)
+
+    @Query("Delete from All_transactions_table")
+    suspend fun deleteAllTransactions()
+
     @Query("Select * from All_transactions_table")
     fun readAlldata(): LiveData<List<Transaction>>
 

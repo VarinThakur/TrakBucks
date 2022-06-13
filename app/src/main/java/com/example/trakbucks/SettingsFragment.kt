@@ -5,12 +5,16 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener
 import android.os.Bundle
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
+import androidx.lifecycle.ViewModelProvider
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
+import com.example.trakbucks.data.TransactionViewModel
 
 
 class SettingsFragment : PreferenceFragmentCompat(), OnSharedPreferenceChangeListener {
+
+    private lateinit var myTransactionViewModel: TransactionViewModel
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
 
@@ -19,6 +23,9 @@ class SettingsFragment : PreferenceFragmentCompat(), OnSharedPreferenceChangeLis
 
         val examplePreference: Preference? = findPreference("signOut")
         examplePreference?.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+
+            myTransactionViewModel= ViewModelProvider(this).get(TransactionViewModel::class.java)
+            myTransactionViewModel.deleteAllTransactions()
 
             val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext() /* Activity context */)
             with(sharedPreferences?.edit())
