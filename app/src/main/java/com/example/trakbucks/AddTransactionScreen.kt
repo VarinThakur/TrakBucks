@@ -1,6 +1,9 @@
 package com.example.trakbucks
 
+import android.app.Activity
 import android.app.DatePickerDialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -21,6 +24,7 @@ import com.example.trakbucks.TimePickerFragment
 import com.example.trakbucks.data.Transaction
 import com.example.trakbucks.data.TransactionViewModel
 import com.mikhaellopez.circularimageview.CircularImageView
+import com.github.dhaval2404.imagepicker.ImagePicker
 
 class AddTransactionScreen : Fragment() {
     private var _binding : FragmentAddTransactionBinding? = null
@@ -60,6 +64,22 @@ class AddTransactionScreen : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            //Image Uri will not be null for RESULT_OK
+            val uri: Uri = data?.data!!
+
+            // Use Uri object instead of File to avoid storage permissions
+            binding.addTransactionImage.setImageURI(uri)
+        } else if (resultCode == ImagePicker.RESULT_ERROR) {
+            Toast.makeText(activity, ImagePicker.getError(data), Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(activity, "Task Cancelled", Toast.LENGTH_SHORT).show()
+        }
+    }
+
 
     fun addTransaction(){
 
@@ -105,47 +125,56 @@ class AddTransactionScreen : Fragment() {
     }
 
     fun addImage(){
-        Toast.makeText(activity, "Added image successfully", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(activity, "Added image successfully", Toast.LENGTH_SHORT).show()
+        ImagePicker.with(this)
+            .galleryOnly()	//User can only select image from Gallery
+            .cropSquare()	//Crop square image, its same as crop(1f, 1f)
+            .start()
     }
 
-    fun setDate(){
-        // create new instance of DatePickerFragment
-        val datePickerFragment = DatePickerFragment()
-        val supportFragmentManager = requireActivity().supportFragmentManager
+    fun setDate(hasFocus : Boolean){
+        if(hasFocus)
+        {
+            // create new instance of DatePickerFragment
+            val datePickerFragment = DatePickerFragment()
+            val supportFragmentManager = requireActivity().supportFragmentManager
 
-        // we have to implement setFragmentResultListener
-        supportFragmentManager.setFragmentResultListener(
-            "REQUEST_KEY",
-            viewLifecycleOwner
-        ) { resultKey, bundle ->
-            if (resultKey == "REQUEST_KEY") {
-                val date = bundle.getString("SELECTED_DATE")
-                binding.addDate.editText!!.setText(date)
+            // we have to implement setFragmentResultListener
+            supportFragmentManager.setFragmentResultListener(
+                "REQUEST_KEY",
+                viewLifecycleOwner
+            ) { resultKey, bundle ->
+                if (resultKey == "REQUEST_KEY") {
+                    val date = bundle.getString("SELECTED_DATE")
+                    binding.addDate.editText!!.setText(date)
+                }
             }
+            // show
+            datePickerFragment.show(supportFragmentManager, "DatePickerFragment")
         }
-
-        // show
-        datePickerFragment.show(supportFragmentManager, "DatePickerFragment")
     }
 
-    fun setTime(){
-        // create new instance of TimePickerFragment
-        val timePickerFragment = TimePickerFragment()
-        val supportFragmentManager = requireActivity().supportFragmentManager
+    fun setTime(hasFocus: Boolean){
 
-        // we have to implement setFragmentResultListener
-        supportFragmentManager.setFragmentResultListener(
-            "REQUEST_KEY",
-            viewLifecycleOwner
-        ) { resultKey, bundle ->
-            if (resultKey == "REQUEST_KEY") {
-                val time = bundle.getString("SELECTED_TIME")
-                binding.addTime.editText!!.setText(time)
+        if(hasFocus){
+            // create new instance of TimePickerFragment
+            val timePickerFragment = TimePickerFragment()
+            val supportFragmentManager = requireActivity().supportFragmentManager
+
+            // we have to implement setFragmentResultListener
+            supportFragmentManager.setFragmentResultListener(
+                "REQUEST_KEY",
+                viewLifecycleOwner
+            ) { resultKey, bundle ->
+                if (resultKey == "REQUEST_KEY") {
+                    val time = bundle.getString("SELECTED_TIME")
+                    binding.addTime.editText!!.setText(time)
+                }
             }
-        }
 
-        //show
-        timePickerFragment.show(supportFragmentManager, "TimePickerFragment")
+            //show
+            timePickerFragment.show(supportFragmentManager, "TimePickerFragment")
+        }
     }
 
     fun cancelTransaction(){

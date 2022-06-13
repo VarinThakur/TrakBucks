@@ -2,6 +2,10 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <Preference android:persistent= "false"
+        android:selectable="false"
+        android:layout="@layout/pref_header"/>
+
     <ListPreference android:key="Theme"
         android:title="Change Theme"
         android:summary="Select your Theme"
@@ -17,5 +21,10 @@
         android:entryValues="@array/Currency"
         app:defaultValue="INR"
         android:icon="@drawable/icon_scale_rupee" />
+
+    <Preference android:title="Sign Out"
+        android:summary="Sign Out of the App"
+        android:key="signOut"
+        app:defaultValue="false"/>
 
 </PreferenceScreen>

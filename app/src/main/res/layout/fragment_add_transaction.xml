@@ -59,18 +59,18 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/creditButton"
                     android:text="@string/credit"
                     android:padding="10dp"
-                    android:textSize="20sp"
-                    android:id="@+id/credit_button"/>
+                    android:textSize="20sp" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/debitButton"
                     android:textSize="20sp"
                     android:padding="10dp"
-                    android:text="@string/debit"
-                    android:id="@+id/debit_button"/>
+                    android:text="@string/debit" />
 
             </RadioGroup>
 
@@ -106,8 +106,8 @@
                 android:layout_alignEnd="@id/add_transaction_image"
                 android:layout_alignBottom="@id/add_transaction_image"
                 android:contentDescription="@string/add_image"
-                android:onClick="@{()->addTransactionfragment.addImage()}"
-                android:src="@drawable/ic_baseline_camera_alt_24" />
+                android:src="@drawable/ic_baseline_camera_alt_24"
+                android:onClick="@{()->addTransactionfragment.addImage()}"/>
 
             <TextView
                 android:id="@+id/add_name_text"
@@ -203,8 +203,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="@{()->addTransactionfragment.setTime()}"
-                    android:inputType="time"
+                    android:onClick="@{()->addTransactionfragment.setTime(true)}"
+                    android:editable="false"
                     android:textSize="20sp"
                     tools:text="@string/enter_the_time" />
 
@@ -237,8 +237,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="date"
-                    android:onClick="@{()->addTransactionfragment.setDate()}"
+                    android:editable="false"
+                    android:onClick="@{()->addTransactionfragment.setDate(true)}"
                     android:textSize="20sp"
                     tools:text="Enter the date." />
 
@@ -251,10 +251,11 @@
                 android:layout_below="@id/add_date">
 
 
+
                 <Button
-                    android:id="@+id/add_transaction_in_list"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/add_transaction_in_list"
                     android:layout_marginTop="40dp"
                     android:layout_marginBottom="40dp"
                     android:layout_toEndOf="@id/cancel_button_in_transaction"
