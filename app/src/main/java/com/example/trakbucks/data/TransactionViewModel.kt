@@ -7,13 +7,13 @@ import kotlinx.coroutines.launch
 import java.sql.Time
 import java.util.*
 
-class TransactionViewModel(application: Application) :AndroidViewModel(application) {
+class TransactionViewModel(private val transactionDao: TransactionDao) :ViewModel() {
 
     val allTransactions : LiveData<List<Transaction>>
     private val repository: TransactionRepository
 
     init {
-        val transactionDao= TransactionDatabase.getDatabase(application).transactionDao()
+        //val transactionDao= TransactionDatabase.getDatabase(application).transactionDao()
         repository = TransactionRepository(transactionDao)
         allTransactions= repository.allTransactions
     }
@@ -42,6 +42,18 @@ class TransactionViewModel(application: Application) :AndroidViewModel(applicati
         }
     }
 
+
+
+}
+
+class TransactionViewModelFactory(private val transactionDao: TransactionDao) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(TransactionViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return TransactionViewModel(transactionDao) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
 
 }
 

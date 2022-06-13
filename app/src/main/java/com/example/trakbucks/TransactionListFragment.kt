@@ -16,8 +16,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import com.example.trakbucks.data.Transaction
+import com.example.trakbucks.data.TransactionApplication
 import com.example.trakbucks.databinding.FragmentTransactionListBinding
 import com.example.trakbucks.data.TransactionViewModel
+import com.example.trakbucks.data.TransactionViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 
 /**
@@ -29,7 +31,12 @@ class TransactionListFragment : Fragment() {
     private var _binding: FragmentTransactionListBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var myTransactionViewModel: TransactionViewModel
+    private val myTransactionViewModel: TransactionViewModel by activityViewModels {
+        TransactionViewModelFactory(
+            (activity?.application as TransactionApplication).database
+                .transactionDao()
+        )
+    }
 
     private lateinit var tranRecyclerView: RecyclerView
 
@@ -51,7 +58,6 @@ class TransactionListFragment : Fragment() {
         tranRecyclerView.layoutManager= LinearLayoutManager(context)
         tranRecyclerView.adapter=adapter
 
-        myTransactionViewModel= ViewModelProvider(this).get(TransactionViewModel::class.java)
 
 
         myTransactionViewModel.allTransactions.observe(viewLifecycleOwner, Observer { transactionList->
