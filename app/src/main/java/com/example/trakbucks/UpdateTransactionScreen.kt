@@ -12,12 +12,15 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.trakbucks.R
 import com.example.trakbucks.data.Transaction
+import com.example.trakbucks.data.TransactionApplication
 import com.example.trakbucks.data.TransactionViewModel
+import com.example.trakbucks.data.TransactionViewModelFactory
 import com.example.trakbucks.databinding.FragmentAddTransactionBinding
 import com.example.trakbucks.databinding.FragmentUpdateTransactionScreenBinding
 import com.github.dhaval2404.imagepicker.ImagePicker
@@ -34,7 +37,12 @@ class UpdateTransactionScreen : Fragment() {
     private var _binding : FragmentUpdateTransactionScreenBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var myTransactionViewModel: TransactionViewModel
+    private val myTransactionViewModel: TransactionViewModel by activityViewModels {
+        TransactionViewModelFactory(
+            (activity?.application as TransactionApplication).database
+                .transactionDao()
+        )
+    }
 
     override fun onResume() {
         super.onResume()
@@ -70,7 +78,6 @@ class UpdateTransactionScreen : Fragment() {
             binding.debitButton.isChecked = true
 
 
-        myTransactionViewModel= ViewModelProvider(this).get(TransactionViewModel::class.java)
 
         return fragmentBinding.root
     }

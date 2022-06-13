@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         app:cardElevation="6sp"
         app:cardCornerRadius="12sp"
-        app:cardUseCompatPadding="true"
+        android:layout_margin="12sp"
         android:id="@+id/transaction_row">
 
         <RelativeLayout

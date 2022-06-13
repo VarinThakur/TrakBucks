@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import java.sql.Time
 import java.util.*
 
-class TransactionViewModel(application: Application) :AndroidViewModel(application) {
+class TransactionViewModel(private val transactionDao: TransactionDao) :ViewModel() {
 
     val allTransactions : LiveData<List<Transaction>>
     private val repository: TransactionRepository
@@ -39,7 +39,7 @@ class TransactionViewModel(application: Application) :AndroidViewModel(applicati
 
 
     init {
-        val transactionDao= TransactionDatabase.getDatabase(application).transactionDao()
+        //val transactionDao= TransactionDatabase.getDatabase(application).transactionDao()
         repository = TransactionRepository(transactionDao)
         allTransactions= repository.allTransactions
         Log.d("Model","View Model created!")
@@ -55,6 +55,18 @@ class TransactionViewModel(application: Application) :AndroidViewModel(applicati
     fun updateTransaction(transaction: Transaction){
         viewModelScope.launch(Dispatchers.IO) { // to run in background thread
             repository.updateTransaction(transaction)
+        }
+    }
+
+    fun deleteTransaction(transaction: Transaction){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteTransaction(transaction)
+        }
+    }
+
+    fun deleteAllTransactions(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAllTransactions()
         }
     }
 
@@ -89,5 +101,17 @@ class TransactionViewModel(application: Application) :AndroidViewModel(applicati
         _profileName.value = name
     }
 
+
+
+}
+
+class TransactionViewModelFactory(private val transactionDao: TransactionDao) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(TransactionViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return TransactionViewModel(transactionDao) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
 }
 

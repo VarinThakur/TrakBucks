@@ -26,6 +26,9 @@ class SettingsFragment : PreferenceFragmentCompat(), OnSharedPreferenceChangeLis
         val examplePreference: Preference? = findPreference("signOut")
         examplePreference?.onPreferenceClickListener = Preference.OnPreferenceClickListener {
 
+            myTransactionViewModel= ViewModelProvider(this).get(TransactionViewModel::class.java)
+            myTransactionViewModel.deleteAllTransactions()
+
             val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext() /* Activity context */)
             with(sharedPreferences?.edit())
             {
