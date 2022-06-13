@@ -36,6 +36,12 @@ class TransactionViewModel(application: Application) :AndroidViewModel(applicati
         }
     }
 
+    fun deleteAllTransactions(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAllTransactions()
+        }
+    }
+
 
 }
 
