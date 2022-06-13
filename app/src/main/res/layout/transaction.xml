@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="updateTransactionScreenfragment"
+            type="com.example.trakbucks.UpdateTransactionScreen" />
+        <variable
+            name="timePickerFragment"
+            type="com.example.trakbucks.TimePickerFragment" />
+    </data>
+
     <com.google.android.material.card.MaterialCardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardElevation="6sp"
         app:cardCornerRadius="12sp"
-        app:cardUseCompatPadding="true">
+        app:cardUseCompatPadding="true"
+        android:id="@+id/transaction_row">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
 
 
             <com.mikhaellopez.circularimageview.CircularImageView
@@ -95,3 +105,4 @@
         </RelativeLayout>
 
     </com.google.android.material.card.MaterialCardView>
+</layout>

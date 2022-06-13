@@ -28,6 +28,11 @@ class MainActivity : AppCompatActivity() {
         setupWithNavController(bottomNavigationView, navController)
 
 
+//        bottomNavigationView.setOnItemSelectedListener { item ->
+//            val selectedDestinationId = item.itemId
+//            navController.popBackStack(selectedDestinationId, inclusive = false)
+//
+//        }
 
         bottomNavigationView.setOnItemReselectedListener { item ->
             // Pop everything up to the reselected item
