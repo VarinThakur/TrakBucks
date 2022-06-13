@@ -58,6 +58,9 @@ class AddTransactionScreen : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.addTransactionfragment = this
+
+        binding.addDate.editText?.setOnFocusChangeListener{View, hasFocus -> setDate(hasFocus) }
+        binding.addTime.editText?.setOnFocusChangeListener{View, hasFocus -> setTime(hasFocus) }
     }
 
     override fun onDestroyView() {
