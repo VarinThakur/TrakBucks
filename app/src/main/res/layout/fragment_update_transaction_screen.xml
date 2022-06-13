@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="updateTransactionScreenfragment"
+            type="com.example.trakbucks.UpdateTransactionScreen" />
+        <variable
+            name="timePickerFragment"
+            type="com.example.trakbucks.TimePickerFragment" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".UpdateTransactionScreen">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp">
+
+            <TextView
+                android:id="@+id/update_transaction_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="40dp"
+                android:text="@string/update_a_transaction"
+                android:textSize="27sp" />
+
+            <TextView
+                android:id="@+id/update_transaction_type_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/update_transaction_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/update_transaction_type"
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:id="@+id/radio_group_credit_debit"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/update_transaction_type_text">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/credit"
+                    android:padding="10dp"
+                    android:textSize="20sp"
+                    android:id="@+id/credit_button"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:padding="10dp"
+                    android:text="@string/debit"
+                    android:id="@+id/debit_button"/>
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/update_image_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/radio_group_credit_debit"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/Update_image"
+                android:textSize="20sp" />
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/update_transaction_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_below="@id/update_image_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/_abstract_user_icon_1" />
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignEnd="@id/update_transaction_image"
+                android:layout_alignBottom="@id/update_transaction_image"
+                android:contentDescription="@string/add_image"
+                android:onClick="@{()->updateTransactionScreenfragment.updateImage()}"
+                android:src="@drawable/ic_baseline_camera_alt_24" />
+
+            <TextView
+                android:id="@+id/update_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/update_transaction_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/update_name"
+                android:textSize="20sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/update_transaction_name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/update_name_text"
+                android:layout_centerHorizontal="true"
+                android:hint="@string/name"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/icons8_name_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:textSize="20sp"
+                    tools:text="@string/enter_your_name" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/update_amount_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/update_transaction_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/update_amount"
+                android:textSize="20sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/update_transaction_amount"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/update_amount_text"
+                android:layout_centerHorizontal="true"
+                android:hint="@string/amount"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/icons8_money_24">
+
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:textSize="20sp"
+                    tools:text="@string/enter_amount" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/update_time_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/update_transaction_amount"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/update_time"
+                android:textSize="20sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/update_time"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/update_time_text"
+                android:layout_centerHorizontal="true"
+                android:hint="@string/time"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/ic_baseline_access_time_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->updateTransactionScreenfragment.setTime()}"
+                    android:inputType="time"
+                    android:textSize="20sp"
+                    tools:text="@string/enter_the_time" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/update_date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/update_time"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/update_date"
+                android:textSize="20sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/update_date"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/update_date_text"
+                android:layout_centerHorizontal="true"
+                android:hint="@string/date"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/ic_baseline_date_range_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:onClick="@{()->updateTransactionScreenfragment.setDate()}"
+                    android:textSize="20sp"
+                    tools:text="Enter the date." />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/update_date">
+
+
+                <Button
+                    android:id="@+id/update_transaction_in_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="40dp"
+                    android:layout_toEndOf="@id/cancel_button_in_transaction"
+                    android:onClick="@{()->updateTransactionScreenfragment.updateTransaction()}"
+                    android:text="@string/update" />
+
+                <Button
+                    android:id="@+id/cancel_button_in_transaction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginBottom="40dp"
+                    android:onClick="@{()->updateTransactionScreenfragment.cancelTransaction()}"
+                    android:text="@string/cancel"
+                    style="?attr/materialButtonOutlinedStyle" />
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

@@ -60,4 +60,12 @@
     <string name="add_date">Add Date</string>
     <string name="date">Date</string>
     <string name="cancel">Cancel</string>
+    <string name="update_a_transaction">Update a transaction</string>
+    <string name="update_transaction_type">Update Transaction Type</string>
+    <string name="Update_image">Update Image</string>
+    <string name="update_name">Update Name</string>
+    <string name="update_date">Update Date</string>
+    <string name="update_time">Update Time</string>
+    <string name="update_amount">Update Amount</string>
+    <string name="update">UPDATE</string>
 </resources>

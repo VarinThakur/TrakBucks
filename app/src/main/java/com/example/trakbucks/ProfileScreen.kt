@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.trakbucks.databinding.FragmentProfileScreenBinding
 import com.example.trakbucks.model.TransactionViewModel
 import com.github.dhaval2404.imagepicker.ImagePicker
+import com.example.trakbucks.data.TransactionViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

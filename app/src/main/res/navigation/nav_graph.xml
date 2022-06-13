@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_transactionListFragment_to_addTransactionScreen"
             app:destination="@id/addTransactionScreen" />
+        <action
+            android:id="@+id/action_transactionListFragment_to_updateTransactionScreen"
+            app:destination="@id/updateTransactionScreen" />
     </fragment>
 
     <fragment
@@ -70,4 +73,18 @@
         android:name="com.example.trakbucks.SettingsFragment"
         android:label="SettingsFragment"
         tools:layout="@xml/settings"/>
+    <fragment
+        android:id="@+id/updateTransactionScreen"
+        android:name="com.example.trakbucks.UpdateTransactionScreen"
+        android:label="UpdateTransactionScreen"
+        tools:layout="@layout/fragment_update_transaction_screen">
+        <action
+            android:id="@+id/action_updateTransactionScreen_to_transactionListFragment"
+            app:destination="@id/transactionListFragment"
+            app:popUpTo="@id/transactionListFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="currentTransaction"
+            app:argType="com.example.trakbucks.data.Transaction" />
+    </fragment>
 </navigation>
