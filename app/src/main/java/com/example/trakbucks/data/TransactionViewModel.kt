@@ -10,6 +10,7 @@ import kotlinx.coroutines.launch
 class TransactionViewModel(private val transactionDao: TransactionDao) :ViewModel() {
 
     val allTransactions : LiveData<List<Transaction>>
+    val recentTransactions : LiveData<List<Transaction>>
     val userDetails : LiveData<List<User>>
     private val repository: TransactionRepository
 
@@ -17,6 +18,7 @@ class TransactionViewModel(private val transactionDao: TransactionDao) :ViewMode
         //val transactionDao= TransactionDatabase.getDatabase(application).transactionDao()
         repository = TransactionRepository(transactionDao)
         allTransactions= repository.allTransactions
+        recentTransactions= repository.recentTransactions
         Log.d("Model","View Model created!")
         userDetails= repository.userDetails
     }

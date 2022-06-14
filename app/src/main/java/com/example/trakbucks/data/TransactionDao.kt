@@ -30,6 +30,9 @@ interface TransactionDao {
     @Query("Select * from All_transactions_table")
     fun readAlldata(): LiveData<List<Transaction>>
 
+    @Query("Select * from All_Transactions_Table order by date desc,time desc limit 3")
+    fun getRecentTransactions(): LiveData<List<Transaction>>
+
     @Query("Select * from User_Details")
     fun getUserDetails(): LiveData<List<User>>
 
