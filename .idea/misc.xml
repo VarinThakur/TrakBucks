@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/layout/fragment_add_transaction.xml" value="0.17708333333333334" />
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/xml/settings.xml" value="0.1585144927536232" />
         <entry key="..\:/TrakBuks/app/src/main/res/layout/activity_main.xml" value="0.2418478260869565" />
         <entry key="..\:/TrakBuks/app/src/main/res/layout/fragment_add_transaction.xml" value="0.1" />
         <entry key="..\:/TrakBuks/app/src/main/res/layout/fragment_dashboard.xml" value="0.2418478260869565" />
@@ -15,10 +18,6 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/build/classes" />
-  </component>
-  <component name="ProjectType">
-    <option name="id" value="Android" />
-  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

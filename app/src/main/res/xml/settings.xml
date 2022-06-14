@@ -9,7 +9,7 @@
     <ListPreference android:key="Theme"
         android:title="Change Theme"
         android:summary="Select your Theme"
-        android:icon="@drawable/icon_scale_themes"
+        android:icon="@drawable/ic_baseline_color_lens_24"
         android:entries="@array/Themes"
         android:entryValues="@array/Themes"
         app:defaultValue="Red"  />
@@ -20,11 +20,12 @@
         android:entries="@array/Currency"
         android:entryValues="@array/Currency"
         app:defaultValue="INR"
-        android:icon="@drawable/icon_scale_rupee" />
+        android:icon="@drawable/ic_baseline_currency_exchange_24" />
 
     <Preference android:title="Sign Out"
         android:summary="Sign Out of the App"
         android:key="signOut"
+        android:icon="@drawable/ic_baseline_exit_to_app_24"
         app:defaultValue="false"/>
 
 </PreferenceScreen>

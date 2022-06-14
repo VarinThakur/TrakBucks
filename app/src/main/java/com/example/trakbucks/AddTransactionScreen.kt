@@ -13,9 +13,17 @@ import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.trakbucks.data.*
 import com.example.trakbucks.databinding.FragmentAddTransactionBinding
+import java.util.*
+import com.example.trakbucks.TimePickerFragment
+import com.example.trakbucks.data.Transaction
+import com.example.trakbucks.data.TransactionApplication
+import com.example.trakbucks.data.TransactionViewModel
+import com.example.trakbucks.data.TransactionViewModelFactory
+import com.mikhaellopez.circularimageview.CircularImageView
 import com.github.dhaval2404.imagepicker.ImagePicker
 
 class AddTransactionScreen : Fragment() {
@@ -42,18 +50,20 @@ class AddTransactionScreen : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         val fragmentBinding = FragmentAddTransactionBinding.inflate(inflater, container, false)
         _binding = fragmentBinding
-
         return fragmentBinding.root
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding?.addTransactionfragment = this
+        binding.addTransactionfragment = this
+
+        binding.addDate.editText?.setOnFocusChangeListener{View, hasFocus -> setDate(hasFocus) }
+        binding.addTime.editText?.setOnFocusChangeListener{View, hasFocus -> setTime(hasFocus) }
     }
 
     override fun onDestroyView() {
@@ -114,10 +124,45 @@ class AddTransactionScreen : Fragment() {
     }
 
     private fun input_check(name : String, type:Int, amount:String, date: String, time: String): Boolean{
-        if(type==0)
-            return false
 
-        if(!TextUtils.isEmpty(name) && !TextUtils.isEmpty(amount) && !TextUtils.isEmpty(date) && !TextUtils.isEmpty(time))
+        if(TextUtils.isEmpty(name))
+        {
+            binding.addTransactionName.error = "Name can't be empty."
+        }
+        else
+        {
+            binding.addTransactionName.error = null
+        }
+        if(TextUtils.isEmpty(amount))
+        {
+            binding.addTransactionAmount.error = "Amount can't be empty."
+        }
+        else
+        {
+            binding.addTransactionAmount.error = null
+        }
+        if(TextUtils.isEmpty(date))
+        {
+            binding.addDate.error = "Date can't be empty."
+        }
+        else
+        {
+            binding.addDate.error = null
+        }
+        if(TextUtils.isEmpty(time))
+        {
+            binding.addTime.error = "Time can't be empty."
+        }
+        else
+        {
+            binding.addTime.error = null
+        }
+
+        if(type != 0 &&
+            !TextUtils.isEmpty(name) &&
+            !TextUtils.isEmpty(amount) &&
+            !TextUtils.isEmpty(date) &&
+            !TextUtils.isEmpty(time))
             return true
 
         return false

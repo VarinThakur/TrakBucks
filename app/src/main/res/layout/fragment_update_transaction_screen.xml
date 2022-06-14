@@ -203,7 +203,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="@{()->updateTransactionScreenfragment.setTime()}"
+                    android:onClick="@{()->updateTransactionScreenfragment.setTime(true)}"
                     android:inputType="time"
                     android:textSize="20sp"
                     tools:text="@string/enter_the_time" />
@@ -238,7 +238,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="date"
-                    android:onClick="@{()->updateTransactionScreenfragment.setDate()}"
+                    android:onClick="@{()->updateTransactionScreenfragment.setDate(true)}"
                     android:textSize="20sp"
                     tools:text="Enter the date." />
 

@@ -2,7 +2,12 @@ package com.example.trakbucks
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
@@ -10,6 +15,9 @@ import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.preference.Preference
 import androidx.preference.PreferenceManager
+import com.example.trakbucks.data.TransactionApplication
+import com.example.trakbucks.data.TransactionViewModel
+import com.example.trakbucks.data.TransactionViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -18,20 +26,25 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        //setTheme(R.style.Blue)
-
+        val name = intent?.extras?.getString("Name").toString()
 
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this /* Activity context */)
+        val theme = sharedPreferences.getString("Theme","Red")
+
+        when(theme)
+        {
+            "Red"->{setTheme((R.style.Red))}
+            "Blue"->{setTheme(R.style.Blue)}
+            "Green"->{setTheme(R.style.Green)}
+        }
+
         val check = sharedPreferences.getString("signOut","false")
 
         if(check == "false")
         {
             val intent = Intent(this, SignUpActivity::class.java).apply {
             }
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
-            setContentView(R.layout.activity_main)
             finish()
         }
         else {

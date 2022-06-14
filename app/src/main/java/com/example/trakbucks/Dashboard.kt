@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
 import com.example.trakbucks.data.TransactionApplication
@@ -41,11 +43,10 @@ class Dashboard : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        val fragmentBinding = FragmentDashboardBinding.inflate(inflater, container, false)
+        val fragmentBinding = DataBindingUtil.inflate<FragmentDashboardBinding>(inflater,R.layout.fragment_dashboard,container,false)
         _binding = fragmentBinding
-
         myTransactionViewModel.userDetails.observe(viewLifecycleOwner) { userDetails ->
             binding.nameText.text = userDetails[0].name
             binding.profileImage.setImageURI(Uri.parse(userDetails[0].profileImage))
@@ -56,7 +57,8 @@ class Dashboard : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding?.dashboardFragment = this
+        binding.dashboardFragment = this
+
 
     }
 
@@ -68,5 +70,4 @@ class Dashboard : Fragment() {
     fun navigate(){
         findNavController().navigate(R.id.action_dashboard_to_profileScreen)
     }
-
 }

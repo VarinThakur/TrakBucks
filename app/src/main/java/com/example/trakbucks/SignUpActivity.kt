@@ -7,6 +7,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
+import androidx.lifecycle.ViewModelProvider
+import androidx.preference.PreferenceManager
+import com.example.trakbucks.data.TransactionViewModel
 import androidx.activity.viewModels
 import androidx.fragment.app.activityViewModels
 import androidx.preference.PreferenceManager
@@ -45,6 +48,7 @@ class SignUpActivity : AppCompatActivity() {
                 }
                 val intent = Intent(this, MainActivity::class.java).apply {
                 }
+                intent.putExtra("Name", binding.name.editText?.text.toString()
 
                 val name = binding.name.editText?.text.toString()
 

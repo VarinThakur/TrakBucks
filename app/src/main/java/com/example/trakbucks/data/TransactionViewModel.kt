@@ -1,6 +1,9 @@
 package com.example.trakbucks.data
-
+import android.app.Application
+import android.net.Uri
+import android.util.Log
 import androidx.lifecycle.*
+import com.example.trakbucks.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -14,6 +17,7 @@ class TransactionViewModel(private val transactionDao: TransactionDao) :ViewMode
         //val transactionDao= TransactionDatabase.getDatabase(application).transactionDao()
         repository = TransactionRepository(transactionDao)
         allTransactions= repository.allTransactions
+        Log.d("Model","View Model created!")
         userDetails= repository.userDetails
     }
 
@@ -69,6 +73,5 @@ class TransactionViewModelFactory(private val transactionDao: TransactionDao) : 
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
-
 }
 
