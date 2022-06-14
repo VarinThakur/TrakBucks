@@ -27,7 +27,7 @@ interface TransactionDao {
     @Query("Delete from User_Details")
     suspend fun deleteUserDetails()
 
-    @Query("Select * from All_transactions_table")
+    @Query("Select * from All_transactions_table order by date desc, time desc")
     fun readAlldata(): LiveData<List<Transaction>>
 
     @Query("Select * from All_Transactions_Table order by date desc,time desc limit 3")
