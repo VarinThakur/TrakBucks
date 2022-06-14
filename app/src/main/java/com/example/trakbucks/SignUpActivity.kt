@@ -12,7 +12,6 @@ import androidx.preference.PreferenceManager
 import com.example.trakbucks.data.TransactionViewModel
 import androidx.activity.viewModels
 import androidx.fragment.app.activityViewModels
-import androidx.preference.PreferenceManager
 import com.example.trakbucks.data.*
 import com.example.trakbucks.databinding.ActivitySignUpBinding
 
@@ -48,7 +47,7 @@ class SignUpActivity : AppCompatActivity() {
                 }
                 val intent = Intent(this, MainActivity::class.java).apply {
                 }
-                intent.putExtra("Name", binding.name.editText?.text.toString()
+                intent.putExtra("Name", binding.name.editText?.text.toString())
 
                 val name = binding.name.editText?.text.toString()
 
