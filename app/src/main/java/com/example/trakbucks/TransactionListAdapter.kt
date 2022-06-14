@@ -3,17 +3,13 @@ package com.example.trakbucks
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trakbucks.data.Transaction
 import com.example.trakbucks.data.TransactionViewModel
 import com.google.android.material.card.MaterialCardView
 import com.mikhaellopez.circularimageview.CircularImageView
-import kotlin.coroutines.coroutineContext
 
 class TransactionListAdapter() :RecyclerView.Adapter<TransactionListAdapter.TransactionListViewHolder>()
 {
