@@ -14,11 +14,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.trakbucks.data.Transaction
-import com.example.trakbucks.data.TransactionApplication
+import com.example.trakbucks.data.*
 import com.example.trakbucks.databinding.FragmentAddTransactionBinding
-import com.example.trakbucks.data.TransactionViewModel
-import com.example.trakbucks.data.TransactionViewModelFactory
 import com.github.dhaval2404.imagepicker.ImagePicker
 
 class AddTransactionScreen : Fragment() {
@@ -103,6 +100,9 @@ class AddTransactionScreen : Fragment() {
             //Create Transaction Object
             val transaction= Transaction(0,image,name,amount, date, time, type)
             myTransactionViewModel.addTransaction(transaction)
+
+            val user= User(0,"null",name, 0,0,0)
+            myTransactionViewModel.addUser(user)
 
             Toast.makeText(activity, "Added Transaction successfully.", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_addTransactionScreen_to_transactionListFragment)

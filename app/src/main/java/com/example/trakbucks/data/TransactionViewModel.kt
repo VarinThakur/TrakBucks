@@ -7,12 +7,14 @@ import kotlinx.coroutines.launch
 class TransactionViewModel(private val transactionDao: TransactionDao) :ViewModel() {
 
     val allTransactions : LiveData<List<Transaction>>
+    val userDetails : LiveData<List<User>>
     private val repository: TransactionRepository
 
     init {
         //val transactionDao= TransactionDatabase.getDatabase(application).transactionDao()
         repository = TransactionRepository(transactionDao)
         allTransactions= repository.allTransactions
+        userDetails= repository.userDetails
     }
 
     fun addTransaction(transaction: Transaction){
@@ -21,9 +23,21 @@ class TransactionViewModel(private val transactionDao: TransactionDao) :ViewMode
         }
     }
 
+    fun addUser( user: User){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.addUser(user)
+        }
+    }
+
     fun updateTransaction(transaction: Transaction){
         viewModelScope.launch(Dispatchers.IO) { // to run in background thread
             repository.updateTransaction(transaction)
+        }
+    }
+
+    fun updateUser( user: User){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.updateUser(user)
         }
     }
 
@@ -39,7 +53,11 @@ class TransactionViewModel(private val transactionDao: TransactionDao) :ViewMode
         }
     }
 
-
+    fun deleteUserDetails(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteUserDetails()
+        }
+    }
 
 }
 

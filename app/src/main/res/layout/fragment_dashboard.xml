@@ -7,6 +7,10 @@
         <variable
             name="dashboardFragment"
             type="com.example.trakbucks.Dashboard" />
+        <variable
+            name="viewModel"
+            type="com.example.trakbucks.data.TransactionViewModel" />
+
     </data>
 
     <ScrollView
@@ -47,8 +51,8 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="10dp"
                     android:layout_toEndOf="@+id/profile_image"
-                    android:text="@string/viruj_thakur"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    tools:text="Viruj Thakur" />
 
                 <TextView
                     android:id="@+id/welcome_back"
