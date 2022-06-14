@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2535" />
         <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/layout/fragment_add_transaction.xml" value="0.17708333333333334" />
         <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/layout/fragment_profile_screen.xml" value="0.25" />
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/layout/fragment_update_transaction_screen.xml" value="0.20878623188405798" />
+        <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/layout/transaction.xml" value="0.25" />
         <entry key="..\:/Coding&amp;Development/AndroidStudioProjects/TrakBucks/app/src/main/res/xml/settings.xml" value="0.1585144927536232" />
         <entry key="..\:/TrakBuks/app/src/main/res/layout/activity_main.xml" value="0.2418478260869565" />
         <entry key="..\:/TrakBuks/app/src/main/res/layout/fragment_add_transaction.xml" value="0.1" />

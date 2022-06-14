@@ -45,7 +45,7 @@ class TransactionListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         val fragmentBinding = FragmentTransactionListBinding.inflate(inflater, container, false)
         _binding = fragmentBinding
@@ -85,7 +85,7 @@ class TransactionListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding?.transactionListFragment= this
+        binding.transactionListFragment = this
 
     }
 
