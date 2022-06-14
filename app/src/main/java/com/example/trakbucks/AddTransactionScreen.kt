@@ -30,6 +30,8 @@ class AddTransactionScreen : Fragment() {
     private var _binding : FragmentAddTransactionBinding? = null
     private val binding get() = _binding!!
 
+    private var uri: Uri = Uri.parse("android.resource://com.example.trakbucks/" + R.drawable.ic_baseline_person_24)
+
     private val myTransactionViewModel: TransactionViewModel by activityViewModels {
         TransactionViewModelFactory(
             (activity?.application as TransactionApplication).database
@@ -75,7 +77,7 @@ class AddTransactionScreen : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
             //Image Uri will not be null for RESULT_OK
-            val uri: Uri = data?.data!!
+            uri = data?.data!!
 
             // Use Uri object instead of File to avoid storage permissions
             binding.addTransactionImage.setImageURI(uri)
@@ -89,7 +91,7 @@ class AddTransactionScreen : Fragment() {
 
     fun addTransaction(){
 
-        val image: Int = binding.addTransactionImage.id
+        val image: String = uri.toString()
         val name: String = binding.addTransactionName.editText?.text.toString()
         val type: Int
 
@@ -110,9 +112,6 @@ class AddTransactionScreen : Fragment() {
             //Create Transaction Object
             val transaction= Transaction(0,image,name,amount, date, time, type)
             myTransactionViewModel.addTransaction(transaction)
-
-            val user= User(0,"null",name, 0,0,0)
-            myTransactionViewModel.addUser(user)
 
             Toast.makeText(activity, "Added Transaction successfully.", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_addTransactionScreen_to_transactionListFragment)
