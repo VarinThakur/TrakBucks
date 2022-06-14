@@ -47,12 +47,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/welcome_back"
-                    android:layout_marginStart="18dp"
-                    android:layout_marginTop="1dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="10dp"
                     android:layout_toEndOf="@+id/profile_image"
-                    android:text="@{viewModel.profileName.toString()}"
+                    android:text="@string/viruj_thakur"
                     android:textSize="30sp"
                     tools:text="@string/viruj_thakur" />
 
