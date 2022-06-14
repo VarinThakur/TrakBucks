@@ -1,24 +1,21 @@
 package com.example.trakbucks
 
 import android.app.Activity
-import android.app.DatePickerDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.SurfaceControl
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.trakbucks.data.*
 import com.example.trakbucks.databinding.FragmentAddTransactionBinding
 import java.util.*
 import com.example.trakbucks.TimePickerFragment
@@ -113,6 +110,9 @@ class AddTransactionScreen : Fragment() {
             //Create Transaction Object
             val transaction= Transaction(0,image,name,amount, date, time, type)
             myTransactionViewModel.addTransaction(transaction)
+
+            val user= User(0,"null",name, 0,0,0)
+            myTransactionViewModel.addUser(user)
 
             Toast.makeText(activity, "Added Transaction successfully.", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_addTransactionScreen_to_transactionListFragment)

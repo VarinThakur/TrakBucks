@@ -11,38 +11,41 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.trakbucks.data.TransactionApplication
 import com.example.trakbucks.databinding.FragmentProfileScreenBinding
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.example.trakbucks.data.TransactionViewModel
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
+import com.example.trakbucks.data.TransactionViewModelFactory
+import com.example.trakbucks.data.User
+import com.example.trakbucks.databinding.FragmentSettingsScreenBinding
 /**
  * A simple [Fragment] subclass.
  * Use the [ProfileScreen.newInstance] factory method to
  * create an instance of this fragment.
  */
 class ProfileScreen : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     private var _binding : FragmentProfileScreenBinding? = null
     private val binding get() = _binding!!
 
-    private val sharedViewModel: TransactionViewModel by activityViewModels()
+    private var uri: Uri = Uri.parse("android.resource://com.example.trakbucks/" + R.drawable._abstract_user_icon_1)
+
+    private val myTransactionViewModel: TransactionViewModel by activityViewModels {
+        TransactionViewModelFactory(
+            (activity?.application as TransactionApplication).database
+                .transactionDao()
+        )
+    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
             //Image Uri will not be null for RESULT_OK
-            val uri: Uri = data?.data!!
+             uri= data?.data!!
 
             // Use Uri object instead of File to avoid storage permissions
             binding.profileImage.setImageURI(uri)
+            //binding.profileImage.tag = uri.toString()
         } else if (resultCode == ImagePicker.RESULT_ERROR) {
             Toast.makeText(activity, ImagePicker.getError(data), Toast.LENGTH_SHORT).show()
         } else {
@@ -52,10 +55,7 @@ class ProfileScreen : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -65,6 +65,9 @@ class ProfileScreen : Fragment() {
         // Inflate the layout for this fragment
         val fragmentBinding = FragmentProfileScreenBinding.inflate(inflater, container, false)
         _binding = fragmentBinding
+        initialise()
+
+
         return fragmentBinding.root
     }
 
@@ -83,38 +86,50 @@ class ProfileScreen : Fragment() {
         findNavController().navigate(R.id.action_profileScreen_to_settingsFragment)
     }
 
+    private fun initialise(){
+        myTransactionViewModel.userDetails.observe(viewLifecycleOwner) { userDetails ->
+            var imageUri= userDetails[0].profileImage
+            binding.profileImage.setImageURI(Uri.parse(imageUri))
+        }
+    }
+
     fun saveChanges()
     {
+        myTransactionViewModel.userDetails.observe(viewLifecycleOwner) { userDetails ->
+            val id = userDetails[0].id
+            var name = binding.name.editText?.text.toString()
+            if(name.isEmpty())
+                name =userDetails[0].name
+
+            var imageUri = uri.toString()
+            if(imageUri.equals("android.resource://com.example.trakbucks/" + R.drawable._abstract_user_icon_1))
+                imageUri= userDetails[0].profileImage
+
+            binding.profileImage.setImageURI(Uri.parse(imageUri))
+
+            val income = userDetails[0].income
+            val expenditure = userDetails[0].expenditure
+            val total = userDetails[0].total
+            val user = User(id, imageUri, name, income, expenditure, total)
+
+
+            myTransactionViewModel.updateUser(user)
+        }
+
         Toast.makeText(activity, "Changes in profile saved!", Toast.LENGTH_SHORT).show()
         findNavController().navigate(R.id.action_profileScreen_to_dashboard)
     }
 
     fun addImage()
     {
-//        Toast.makeText(activity, "Proflie image updated", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(activity, "Profile image updated", Toast.LENGTH_SHORT).show()
         ImagePicker.with(this)
             .galleryOnly()	//User can only select image from Gallery
             .cropSquare()	//Crop square image, its same as crop(1f, 1f)
             .start()
+
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileScreen.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProfileScreen().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+
 }

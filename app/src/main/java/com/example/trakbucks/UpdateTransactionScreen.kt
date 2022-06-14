@@ -13,15 +13,12 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.trakbucks.R
 import com.example.trakbucks.data.Transaction
 import com.example.trakbucks.data.TransactionApplication
 import com.example.trakbucks.data.TransactionViewModel
 import com.example.trakbucks.data.TransactionViewModelFactory
-import com.example.trakbucks.databinding.FragmentAddTransactionBinding
 import com.example.trakbucks.databinding.FragmentUpdateTransactionScreenBinding
 import com.github.dhaval2404.imagepicker.ImagePicker
 

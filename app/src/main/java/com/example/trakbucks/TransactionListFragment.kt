@@ -9,18 +9,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.SnapHelper
 import com.example.trakbucks.data.Transaction
 import com.example.trakbucks.data.TransactionApplication
 import com.example.trakbucks.databinding.FragmentTransactionListBinding
 import com.example.trakbucks.data.TransactionViewModel
 import com.example.trakbucks.data.TransactionViewModelFactory
-import com.google.android.material.snackbar.Snackbar
 
 /**
  * A simple [Fragment] subclass.
@@ -101,7 +98,7 @@ class TransactionListFragment : Fragment() {
         findNavController().navigate(R.id.action_transactionListFragment_to_addTransactionScreen)
     }
 
-    private fun deleteTransaction(currentTransaction:Transaction){
+    private fun deleteTransaction(currentTransaction: Transaction){
 
         val builder = AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Yes"){ _,_->

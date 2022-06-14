@@ -28,6 +28,13 @@ class SettingsFragment : PreferenceFragmentCompat(), OnSharedPreferenceChangeLis
 //        )
 //    }
 
+    private val myTransactionViewModel: TransactionViewModel by activityViewModels {
+        TransactionViewModelFactory(
+            (activity?.application as TransactionApplication).database
+                .transactionDao()
+        )
+    }
+
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
 
         setPreferencesFromResource(R.xml.settings, rootKey)
@@ -39,7 +46,9 @@ class SettingsFragment : PreferenceFragmentCompat(), OnSharedPreferenceChangeLis
         val examplePreference: Preference? = findPreference("signOut")
         examplePreference?.onPreferenceClickListener = Preference.OnPreferenceClickListener {
 
-            //myTransactionViewModel.deleteAllTransactions()
+            myTransactionViewModel.deleteUserDetails()
+            myTransactionViewModel.deleteAllTransactions()
+
 
             val sharedPreferences =
                 PreferenceManager.getDefaultSharedPreferences(requireContext() /* Activity context */)
