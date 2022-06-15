@@ -91,17 +91,16 @@
                     <RelativeLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="16sp">
+                        android:layout_height="match_parent">
 
                         <ProgressBar
                             android:id="@+id/income_progress"
-                            android:layout_width="match_parent"
-                            android:layout_height="150sp"
+                            android:layout_width="180sp"
+                            android:layout_height="180sp"
+                            android:layout_centerHorizontal="true"
                             android:indeterminateOnly="false"
-                            android:progress="60"
                             android:progressDrawable="@drawable/circle"
-                            tools:progress="60" />
+                            tools:progress="100" />
 
                         <TextView
                             android:id="@+id/income_text"
@@ -109,16 +108,18 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@id/income_progress"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginStart="10sp"
+                            android:layout_marginBottom="16sp"
                             android:gravity="center"
                             android:text="@string/income"
                             android:textSize="17sp" />
 
                         <TextView
+                            android:id="@+id/income_amount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/income_progress"
+                            android:layout_alignBottom="@id/income_progress"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="65sp"
                             android:gravity="center"
                             android:text="20"
                             android:textSize="20sp"
@@ -141,34 +142,35 @@
                     <RelativeLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="16sp">
+                        android:layout_height="match_parent">
 
                         <ProgressBar
                             android:id="@+id/expenditure_progress"
-                            android:layout_width="match_parent"
-                            android:layout_height="150sp"
+                            android:layout_width="180sp"
+                            android:layout_height="180sp"
+                            android:layout_centerHorizontal="true"
                             android:indeterminateOnly="false"
                             android:progressDrawable="@drawable/circle"
-                            tools:progress="60"
-                            android:progress="60"/>
+                            tools:progress="100" />
 
                         <TextView
                             android:id="@+id/expenditure_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/expenditure_progress"
-                            android:layout_marginStart="10sp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="16sp"
                             android:text="@string/expenditure"
-                            android:textSize="17sp"
-                            android:layout_centerHorizontal="true"/>
+                            android:textSize="17sp" />
 
                         <TextView
+                            android:id="@+id/expenditure_amount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_above="@+id/expenditure_text"
+                            android:layout_alignTop="@+id/expenditure_progress"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginStart="10sp"
-                            android:layout_marginTop="65sp"
+                            android:gravity="center"
                             android:text="20"
                             android:textSize="20sp"
                             tools:text="@string/_20000" />
