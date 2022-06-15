@@ -113,18 +113,6 @@ class Dashboard : Fragment() {
         return fragmentBinding.root
     }
 
-    override fun onViewStateRestored(savedInstanceState: Bundle?) {
-        if (savedInstanceState != null) {
-            binding.incomeProgress.progress= savedInstanceState.getInt("incomeProgress")
-        }
-        super.onViewStateRestored(savedInstanceState)
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        outState.putInt("incomeProgress", binding.incomeProgress.progress)
-        super.onSaveInstanceState(outState)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.dashboardFragment = this
