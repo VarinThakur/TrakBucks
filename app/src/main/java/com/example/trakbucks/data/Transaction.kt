@@ -13,7 +13,7 @@ import kotlinx.android.parcel.Parcelize
 data class Transaction(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val personImage: Int,
+    val personImage: String,
     val name: String,
     val amount: String,
     val date: String,

@@ -15,10 +15,7 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.trakbucks.data.Transaction
-import com.example.trakbucks.data.TransactionApplication
-import com.example.trakbucks.data.TransactionViewModel
-import com.example.trakbucks.data.TransactionViewModelFactory
+import com.example.trakbucks.data.*
 import com.example.trakbucks.databinding.FragmentUpdateTransactionScreenBinding
 import com.github.dhaval2404.imagepicker.ImagePicker
 
@@ -33,6 +30,8 @@ class UpdateTransactionScreen : Fragment() {
 
     private var _binding : FragmentUpdateTransactionScreenBinding? = null
     private val binding get() = _binding!!
+
+    private var uri: Uri= Uri.parse("android.resource://com.example.trakbucks/" + R.drawable.ic_baseline_person_24)
 
     private val myTransactionViewModel: TransactionViewModel by activityViewModels {
         TransactionViewModelFactory(
@@ -60,7 +59,7 @@ class UpdateTransactionScreen : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         val fragmentBinding = FragmentUpdateTransactionScreenBinding.inflate(inflater, container, false)
         _binding = fragmentBinding
@@ -69,6 +68,7 @@ class UpdateTransactionScreen : Fragment() {
         binding.updateTransactionAmount.editText?.setText(args.currentTransaction.amount)
         binding.updateDate.editText?.setText(args.currentTransaction.date)
         binding.updateTime.editText?.setText(args.currentTransaction.time)
+        binding.updateTransactionImage.setImageURI(Uri.parse(args.currentTransaction.personImage))
         if(args.currentTransaction.type==1)
             binding.creditButton.isChecked = true
         else if(args.currentTransaction.type==2)
@@ -81,7 +81,7 @@ class UpdateTransactionScreen : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding?.updateTransactionScreenfragment = this
+        binding.updateTransactionScreenfragment = this
 
         binding.updateDate.editText?.setOnFocusChangeListener{View, hasFocus -> setDate(hasFocus) }
         binding.updateTime.editText?.setOnFocusChangeListener{View, hasFocus -> setTime(hasFocus) }
@@ -92,7 +92,7 @@ class UpdateTransactionScreen : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
             //Image Uri will not be null for RESULT_OK
-            val uri: Uri = data?.data!!
+            uri = data?.data!!
 
             // Use Uri object instead of File to avoid storage permissions
             binding.updateTransactionImage.setImageURI(uri)
@@ -110,7 +110,7 @@ class UpdateTransactionScreen : Fragment() {
 
     fun updateTransaction(){
 
-        val image: Int = binding.updateTransactionImage.id
+        val image: String = uri.toString()
         val name = binding.updateTransactionName.editText?.text.toString()
         val amount = binding.updateTransactionAmount.editText?.text.toString()
         val date = binding.updateDate.editText?.text.toString()
@@ -126,7 +126,44 @@ class UpdateTransactionScreen : Fragment() {
 
         if(input_check(name, type, amount, date, time)){
             val updatedTransaction = Transaction(args.currentTransaction.id,image,name, amount, date, time, type)
+
             myTransactionViewModel.updateTransaction(updatedTransaction)
+
+            myTransactionViewModel.userDetails.observe(viewLifecycleOwner) { userDetails ->
+
+                val id= userDetails[0].id
+                val name= userDetails[0].name
+                val image = userDetails[0].profileImage
+
+                var income = userDetails[0].income
+                var expenditure = userDetails[0].expenditure
+                var total = userDetails[0].total
+
+                if(updatedTransaction.type==2)
+                {
+                    expenditure+= updatedTransaction.amount.toInt()
+                    if(args.currentTransaction.type==2)
+                        expenditure-= args.currentTransaction.amount.toInt()
+                    else if(args.currentTransaction.type==1)
+                        income-= args.currentTransaction.amount.toInt()
+                }
+                else if(updatedTransaction.type==1)
+                {
+                    income+=updatedTransaction.amount.toInt()
+                    if(args.currentTransaction.type==1)
+                        income-= args.currentTransaction.amount.toInt()
+                    else if(args.currentTransaction.type==2)
+                        expenditure-=args.currentTransaction.amount.toInt()
+                }
+
+                total+= updatedTransaction.amount.toInt()
+                total-= args.currentTransaction.amount.toInt()
+
+                val user= User(id,image,name, income, expenditure, total)
+                myTransactionViewModel.updateUser(user)
+
+            }
+
             Toast.makeText(activity, "Updated Transaction successfully", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_updateTransactionScreen_to_transactionListFragment)
         }

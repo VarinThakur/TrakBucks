@@ -28,7 +28,7 @@ class ProfileScreen : Fragment() {
     private var _binding : FragmentProfileScreenBinding? = null
     private val binding get() = _binding!!
 
-    private var uri: Uri = Uri.parse("android.resource://com.example.trakbucks/" + R.drawable._abstract_user_icon_1)
+    private var uri: Uri = Uri.parse("android.resource://com.example.trakbucks/" + R.drawable.ic_baseline_person_24)
 
     private val myTransactionViewModel: TransactionViewModel by activityViewModels {
         TransactionViewModelFactory(
@@ -61,7 +61,7 @@ class ProfileScreen : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         val fragmentBinding = FragmentProfileScreenBinding.inflate(inflater, container, false)
         _binding = fragmentBinding
@@ -73,7 +73,7 @@ class ProfileScreen : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding?.profileScreenFragment = this
+        binding.profileScreenFragment = this
     }
 
     override fun onDestroyView() {
@@ -88,7 +88,7 @@ class ProfileScreen : Fragment() {
 
     private fun initialise(){
         myTransactionViewModel.userDetails.observe(viewLifecycleOwner) { userDetails ->
-            var imageUri= userDetails[0].profileImage
+            val imageUri= userDetails[0].profileImage
             binding.profileImage.setImageURI(Uri.parse(imageUri))
         }
     }
@@ -102,7 +102,7 @@ class ProfileScreen : Fragment() {
                 name =userDetails[0].name
 
             var imageUri = uri.toString()
-            if(imageUri.equals("android.resource://com.example.trakbucks/" + R.drawable._abstract_user_icon_1))
+            if(imageUri.equals("android.resource://com.example.trakbucks/" + R.drawable.ic_baseline_person_24))
                 imageUri= userDetails[0].profileImage
 
             binding.profileImage.setImageURI(Uri.parse(imageUri))

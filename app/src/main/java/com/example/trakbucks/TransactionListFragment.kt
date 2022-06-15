@@ -2,22 +2,21 @@ package com.example.trakbucks
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.trakbucks.data.Transaction
-import com.example.trakbucks.data.TransactionApplication
+import com.example.trakbucks.data.*
 import com.example.trakbucks.databinding.FragmentTransactionListBinding
-import com.example.trakbucks.data.TransactionViewModel
-import com.example.trakbucks.data.TransactionViewModelFactory
 
 /**
  * A simple [Fragment] subclass.
@@ -30,7 +29,7 @@ class TransactionListFragment : Fragment() {
 
     private val myTransactionViewModel: TransactionViewModel by activityViewModels {
         TransactionViewModelFactory(
-            (activity?.application as TransactionApplication).database
+            (requireActivity().application as TransactionApplication).database
                 .transactionDao()
         )
     }
@@ -45,7 +44,8 @@ class TransactionListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        Log.d("frag","view created!")
         // Inflate the layout for this fragment
         val fragmentBinding = FragmentTransactionListBinding.inflate(inflater, container, false)
         _binding = fragmentBinding
@@ -62,13 +62,14 @@ class TransactionListFragment : Fragment() {
         })
 
         val swipeGesture= object :SwipeGesture(this.requireContext()){
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder,direction: Int) {
                 when(direction){
                     ItemTouchHelper.LEFT->{
                         val pos= viewHolder.bindingAdapterPosition
                         val currentTransaction = adapter.transactionList[pos]
 
                         deleteTransaction(currentTransaction)
+
                         adapter.notifyItemChanged(viewHolder.bindingAdapterPosition)
                     }
                 }
@@ -85,11 +86,12 @@ class TransactionListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding?.transactionListFragment= this
+        binding.transactionListFragment = this
 
     }
 
     override fun onDestroyView() {
+        Log.d("frag_tranList","Fragment Destroyed!")
         super.onDestroyView()
         _binding=null
     }
@@ -102,10 +104,44 @@ class TransactionListFragment : Fragment() {
 
         val builder = AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Yes"){ _,_->
+
             myTransactionViewModel.deleteTransaction(currentTransaction)
+//            val user = test(currentTransaction)
+            Log.d("Tran_delete","Transaction Deleted!")
+//            Log.d("tran",currentTransaction.amount)
+
+            myTransactionViewModel.userDetails.observe(viewLifecycleOwner) { userDetails ->
+                Log.d("tran_observer","Enter Observer!")
+                val id= userDetails[0].id
+                val name= userDetails[0].name
+                val image = userDetails[0].profileImage
+
+                var income = userDetails[0].income
+                var expenditure = userDetails[0].expenditure
+                var total = userDetails[0].total
+                Log.d("tran1","$total")
+
+                if(currentTransaction.type==2)
+                {
+                    expenditure-= currentTransaction.amount.toInt()
+                }
+                else if(currentTransaction.type==1)
+                {
+                    income-=currentTransaction.amount.toInt()
+                }
+
+                total-= currentTransaction.amount.toInt()
+                Log.d("tran2","$total")
+
+                val user= User(id,image,name, income, expenditure, total)
+                myTransactionViewModel.updateUser(user)
+            }
+
+//            myTransactionViewModel.updateUser(user!!)
             Toast.makeText(requireContext(),
                 "Deleted Transaction of ${currentTransaction.name} Successfully.",
                 Toast.LENGTH_SHORT).show()
+            myTransactionViewModel.userDetails.removeObservers(viewLifecycleOwner)
         }
         builder.setNegativeButton("No"){ _,_->}
         builder.setTitle("Delete ${currentTransaction.name}?")
@@ -119,5 +155,36 @@ class TransactionListFragment : Fragment() {
 //        }
 
     }
+
+//    fun test(currentTransaction:Transaction) : User?{
+//        var user : User? = null
+//        myTransactionViewModel.userDetails.observe(viewLifecycleOwner) { userDetails ->
+//            Log.d("tran_observer","Enter Observer!")
+//            val id= userDetails[0].id
+//            val name= userDetails[0].name
+//            val image = userDetails[0].profileImage
+//
+//            var income = userDetails[0].income
+//            var expenditure = userDetails[0].expenditure
+//            var total = userDetails[0].total
+//            Log.d("tran1","$total")
+//
+//            if(currentTransaction.type==2)
+//            {
+//                expenditure-= currentTransaction.amount.toInt()
+//            }
+//            else if(currentTransaction.type==1)
+//            {
+//                income-=currentTransaction.amount.toInt()
+//            }
+//
+//            total-= currentTransaction.amount.toInt()
+//            Log.d("tran2","$total")
+//
+//            user= User(id,image,name, income, expenditure, total)
+//        }
+//
+//        return user
+//    }
 
 }

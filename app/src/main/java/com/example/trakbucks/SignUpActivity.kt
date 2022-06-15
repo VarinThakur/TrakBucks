@@ -52,7 +52,7 @@ class SignUpActivity : AppCompatActivity() {
                 val name = binding.name.editText?.text.toString()
 
 
-                val uri = ("android.resource://com.example.trakbucks/" + R.drawable._abstract_user_icon_1)
+                val uri = ("android.resource://com.example.trakbucks/" + R.drawable.ic_baseline_person_24)
                 val user= User(0,uri, name, 0,0,0)
                 myTransactionViewModel.addUser(user)
                 startActivity(intent)
