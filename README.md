@@ -58,7 +58,7 @@ Investment tips
 If you have any feedback, please reach out to us at varin66@gmail.com or virujthakur01@gmail.com
 
 Screenshots
-![Screenshot_20220615-141339_TrakBucks](https://user-images.githubusercontent.com/77432903/173785884-3b9bef7a-ae87-428c-8f86-374153c44b0f.png) ![Screenshot_20220615-141723_TrakBucks](https://user-images.githubusercontent.com/77432903/173785910-ded802df-5d3a-4930-b49a-ee24ddb4198e.png) ![Screenshot_20220615-141729_TrakBucks](https://user-images.githubusercontent.com/77432903/173785952-5ee241b9-7551-4ae5-b343-58d786741e09.png)
+![Screenshot_20220615-141339_TrakBucks](https://user-images.githubusercontent.com/77432903/173785884-3b9bef7a-ae87-428c-8f86-374153c44b0f.png = 250x250) ![Screenshot_20220615-141723_TrakBucks](https://user-images.githubusercontent.com/77432903/173785910-ded802df-5d3a-4930-b49a-ee24ddb4198e.png) ![Screenshot_20220615-141729_TrakBucks](https://user-images.githubusercontent.com/77432903/173785952-5ee241b9-7551-4ae5-b343-58d786741e09.png)
 
 ![Screenshot_20220615-141735_TrakBucks](https://user-images.githubusercontent.com/77432903/173785977-93a0b312-c012-4a65-9e53-ec846ca7b68a.png)
 ![Screenshot_20220615-141741_TrakBucks](https://user-images.githubusercontent.com/77432903/173785992-33b3538c-7114-407e-b331-82754f9e9de8.png)
