@@ -18,8 +18,10 @@
         <entry key="..\:/TrakBuks/app/src/main/res/layout/fragment_transaction_list.xml" value="0.22826086956521738" />
         <entry key="..\:/TrakBuks/app/src/main/res/layout/fragment_update_transaction_screen.xml" value="0.2418478260869565" />
         <entry key="..\:/TrakBuks/app/src/main/res/layout/list_item_dropdown.xml" value="0.2418478260869565" />
+        <entry key="..\:/TrakBuks/app/src/main/res/layout/pref_header.xml" value="0.10989583333333333" />
         <entry key="..\:/TrakBuks/app/src/main/res/layout/transaction.xml" value="0.2418478260869565" />
         <entry key="..\:/TrakBuks/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.25" />
+        <entry key="..\:/TrakBuks/app/src/main/res/xml/settings.xml" value="0.10989583333333333" />
       </map>
     </option>
   </component>
