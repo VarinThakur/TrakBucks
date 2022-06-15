@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -69,6 +70,7 @@ class AddTransactionScreen : Fragment() {
     }
 
     override fun onDestroyView() {
+        Log.d("frag_tran","Fragment Destroyed!")
         super.onDestroyView()
         _binding = null
     }
@@ -112,6 +114,29 @@ class AddTransactionScreen : Fragment() {
             //Create Transaction Object
             val transaction= Transaction(0,image,name,amount, date, time, type)
             myTransactionViewModel.addTransaction(transaction)
+
+            myTransactionViewModel.userDetails.observe(viewLifecycleOwner) { userDetails ->
+
+                Log.d("tran_add","Observer started!")
+                val id= userDetails[0].id
+                val name= userDetails[0].name
+                val image = userDetails[0].profileImage
+
+                var income = userDetails[0].income
+                var expenditure = userDetails[0].expenditure
+                var total = userDetails[0].total
+
+                if(transaction.type==2)
+                    expenditure+= transaction.amount.toInt()
+                else if(transaction.type==1)
+                    income+=transaction.amount.toInt()
+
+                total+= transaction.amount.toInt()
+
+                val user= User(id,image,name, income, expenditure, total)
+                myTransactionViewModel.updateUser(user)
+
+            }
 
             Toast.makeText(activity, "Added Transaction successfully.", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_addTransactionScreen_to_transactionListFragment)
