@@ -57,18 +57,13 @@ Investment tips
 # Feedback
 If you have any feedback, please reach out to us at varin66@gmail.com or virujthakur01@gmail.com
 
-Screenshots
-![Screenshot_20220615-141339_TrakBucks](https://user-images.githubusercontent.com/77432903/173785884-3b9bef7a-ae87-428c-8f86-374153c44b0f.png | width=100) ![Screenshot_20220615-141723_TrakBucks](https://user-images.githubusercontent.com/77432903/173785910-ded802df-5d3a-4930-b49a-ee24ddb4198e.png) ![Screenshot_20220615-141729_TrakBucks](https://user-images.githubusercontent.com/77432903/173785952-5ee241b9-7551-4ae5-b343-58d786741e09.png)
+# Screenshots
+<img src="https://user-images.githubusercontent.com/77432903/173785884-3b9bef7a-ae87-428c-8f86-374153c44b0f.png" width=250 > <img src="https://user-images.githubusercontent.com/77432903/173785910-ded802df-5d3a-4930-b49a-ee24ddb4198e.png" width=250 > <img src="https://user-images.githubusercontent.com/77432903/173785952-5ee241b9-7551-4ae5-b343-58d786741e09.png" width=250 >
+<img src="https://user-images.githubusercontent.com/77432903/173785977-93a0b312-c012-4a65-9e53-ec846ca7b68a.png" width=250 ><img src="https://user-images.githubusercontent.com/77432903/173785992-33b3538c-7114-407e-b331-82754f9e9de8.png" width=250 ><img src="https://user-images.githubusercontent.com/77432903/173786001-0b7bf435-c82f-42dc-81a2-14a77cc8366b.png" width=250 >
+<img src="https://user-images.githubusercontent.com/77432903/173786026-c66dce70-0487-420e-a77d-327ca1b5bb77.png" width=250 ><img src="https://user-images.githubusercontent.com/77432903/173786029-b08beb21-3852-43c8-aa18-6bb61c66dcf6.png" width=250 ><img src="https://user-images.githubusercontent.com/77432903/173786053-046b5ddd-f4c0-4920-b4ae-ac17c4ab7313.png" width=250 >
+<img src="https://user-images.githubusercontent.com/77432903/173786119-a2932b07-4757-469a-ac91-ce00f6b924a8.png" width=250 ><img src="https://user-images.githubusercontent.com/77432903/173786146-555dcf4f-649a-4a57-b436-41257c1d4ba8.png" width=250 ><img src="https://user-images.githubusercontent.com/77432903/173786165-fff3dbfe-67bf-496d-8c07-a07ca009af8c.png" width=250 >
+<img src="https://user-images.githubusercontent.com/77432903/173788792-773987ce-4c0b-44f4-80e2-fd703112673b.gif" width=250 >
 
-![Screenshot_20220615-141735_TrakBucks](https://user-images.githubusercontent.com/77432903/173785977-93a0b312-c012-4a65-9e53-ec846ca7b68a.png)
-![Screenshot_20220615-141741_TrakBucks](https://user-images.githubusercontent.com/77432903/173785992-33b3538c-7114-407e-b331-82754f9e9de8.png)
-![Screenshot_20220615-141750_TrakBucks](https://user-images.githubusercontent.com/77432903/173786001-0b7bf435-c82f-42dc-81a2-14a77cc8366b.png)
-![Screenshot_20220615-141756_TrakBucks](https://user-images.githubusercontent.com/77432903/173786026-c66dce70-0487-420e-a77d-327ca1b5bb77.png)
-![Screenshot_20220615-141801_TrakBucks](https://user-images.githubusercontent.com/77432903/173786029-b08beb21-3852-43c8-aa18-6bb61c66dcf6.png)
-![Screenshot_20220615-141807_TrakBucks](https://user-images.githubusercontent.com/77432903/173786053-046b5ddd-f4c0-4920-b4ae-ac17c4ab7313.png)
-![Screenshot_20220615-141811_TrakBucks](https://user-images.githubusercontent.com/77432903/173786119-a2932b07-4757-469a-ac91-ce00f6b924a8.png)
-![Screenshot_20220615-141822_TrakBucks](https://user-images.githubusercontent.com/77432903/173786146-555dcf4f-649a-4a57-b436-41257c1d4ba8.png)
-![Screenshot_20220615-141831_TrakBucks](https://user-images.githubusercontent.com/77432903/173786165-fff3dbfe-67bf-496d-8c07-a07ca009af8c.png)
-https://user-images.githubusercontent.com/77432903/173786210-7135760d-dc4e-44cb-89d8-88ef40426fda.mp4
+
 
 
