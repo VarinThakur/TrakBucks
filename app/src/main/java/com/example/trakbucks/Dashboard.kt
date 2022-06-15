@@ -12,6 +12,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trakbucks.data.TransactionApplication
@@ -19,7 +20,8 @@ import com.example.trakbucks.databinding.FragmentDashboardBinding
 import com.example.trakbucks.data.TransactionViewModel
 import com.example.trakbucks.data.TransactionViewModelFactory
 import com.example.trakbucks.data.User
-import java.util.Observer
+import java.text.NumberFormat
+import java.util.*
 
 /**
  * A simple [Fragment] subclass.
@@ -51,7 +53,7 @@ class Dashboard : Fragment() {
         val fragmentBinding = DataBindingUtil.inflate<FragmentDashboardBinding>(inflater,R.layout.fragment_dashboard,container,false)
         _binding = fragmentBinding
 
-        val adapter = TransactionListAdapter()
+        val adapter = RecentTransactionsAdapter()
         recentTranRecyclerView=binding.recentTransactionsRecyclerView
         recentTranRecyclerView.layoutManager= LinearLayoutManager(context)
         recentTranRecyclerView.adapter=adapter
@@ -64,6 +66,35 @@ class Dashboard : Fragment() {
         myTransactionViewModel.userDetails.observe(viewLifecycleOwner) { userDetails ->
             binding.nameText.text = userDetails[0].name
             binding.profileImage.setImageURI(Uri.parse(userDetails[0].profileImage))
+
+            val sharedPreferences = PreferenceManager.getDefaultSharedPreferences( requireContext()/* Activity context */)
+            val currency = sharedPreferences.getString("Currency", "INR")
+
+            when(currency)
+            {
+                "INR"->{
+                    binding.incomeAmount.text = NumberFormat.getCurrencyInstance(Locale("en","IN")).format(userDetails[0].income)
+                    binding.expenditureAmount.text = NumberFormat.getCurrencyInstance(Locale("en","IN")).format(userDetails[0].expenditure)
+                }
+                "EUR"->{
+                    binding.incomeAmount.text = NumberFormat.getCurrencyInstance(Locale("en","IE")).format(userDetails[0].income)
+                    binding.expenditureAmount.text = NumberFormat.getCurrencyInstance(Locale("en","IE")).format(userDetails[0].expenditure)
+                }
+                "DOL"->{
+                    binding.incomeAmount.text = NumberFormat.getCurrencyInstance(Locale("en","US")).format(userDetails[0].income)
+                    binding.expenditureAmount.text = NumberFormat.getCurrencyInstance(Locale("en","US")).format(userDetails[0].expenditure)
+                }
+            }
+
+            if(userDetails[0].total != 0 ){
+                binding.incomeProgress.progress = userDetails[0].income * 100/ userDetails[0].total
+                binding.expenditureProgress.progress = userDetails[0].expenditure * 100 / userDetails[0].total
+
+            }
+            else{
+                binding.incomeProgress.progress = 0
+                binding.expenditureProgress.progress = 0
+            }
         }
 
         return fragmentBinding.root
