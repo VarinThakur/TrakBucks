@@ -86,7 +86,7 @@ class Dashboard : Fragment() {
                 }
             }
 
-            if(userDetails[0].total != 0 ){
+            if(userDetails[0].total > 0 ){
                 val incomeProgress = (userDetails[0].income * 100 )/ userDetails[0].total
                 if(incomeProgress!=0)
                 binding.incomeProgress.progress = incomeProgress
