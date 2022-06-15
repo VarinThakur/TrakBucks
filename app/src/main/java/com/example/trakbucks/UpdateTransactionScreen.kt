@@ -69,6 +69,7 @@ class UpdateTransactionScreen : Fragment() {
         binding.updateDate.editText?.setText(args.currentTransaction.date)
         binding.updateTime.editText?.setText(args.currentTransaction.time)
         binding.updateTransactionImage.setImageURI(Uri.parse(args.currentTransaction.personImage))
+        uri = Uri.parse(args.currentTransaction.personImage)
         if(args.currentTransaction.type==1)
             binding.creditButton.isChecked = true
         else if(args.currentTransaction.type==2)
