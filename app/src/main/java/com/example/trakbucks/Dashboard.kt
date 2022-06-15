@@ -87,17 +87,42 @@ class Dashboard : Fragment() {
             }
 
             if(userDetails[0].total != 0 ){
-                binding.incomeProgress.progress = userDetails[0].income * 100/ userDetails[0].total
-                binding.expenditureProgress.progress = userDetails[0].expenditure * 100 / userDetails[0].total
+                val incomeProgress = (userDetails[0].income * 100 )/ userDetails[0].total
+                if(incomeProgress!=0)
+                binding.incomeProgress.progress = incomeProgress
+                else
+                    binding.incomeProgress.progress=0
 
+                val expenProgress = (userDetails[0].expenditure * 100) / userDetails[0].total
+                if(expenProgress!=0)
+                    binding.expenditureProgress.progress = expenProgress
+                else
+                    binding.expenditureProgress.progress=0
             }
             else{
                 binding.incomeProgress.progress = 0
                 binding.expenditureProgress.progress = 0
             }
-        }
 
+//            if(binding.incomeProgress.progress.toInt()==0)
+//                binding.incomeProgress.progress=0
+//            if(binding.expenditureProgress.progress.toInt() ==0)
+//                binding.expenditureProgress.progress=0
+
+        }
         return fragmentBinding.root
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        if (savedInstanceState != null) {
+            binding.incomeProgress.progress= savedInstanceState.getInt("incomeProgress")
+        }
+        super.onViewStateRestored(savedInstanceState)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt("incomeProgress", binding.incomeProgress.progress)
+        super.onSaveInstanceState(outState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -111,6 +136,8 @@ class Dashboard : Fragment() {
         super.onDestroyView()
         _binding=null
     }
+
+
 
     fun navigate(){
         findNavController().navigate(R.id.action_dashboard_to_profileScreen)
