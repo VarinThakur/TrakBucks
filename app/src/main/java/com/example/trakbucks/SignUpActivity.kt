@@ -61,5 +61,13 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        binding.name.editText?.setText(savedInstanceState.getString("SIGN_UP_NAME"))
+        super.onRestoreInstanceState(savedInstanceState)
+    }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putString("SIGN_UP_NAME", binding.name.editText?.text.toString())
+        super.onSaveInstanceState(outState)
+    }
 }
