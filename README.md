@@ -51,8 +51,8 @@ Cloud Database
 Investment tips
 
 # Contributors
-@Viruj Thakur
-@Varin Thakur
+[@Viruj Thakur](https://github.com/VJ1122001)
+[@Varin Thakur](https://github.com/VarinThakur)
 
 # Feedback
 If you have any feedback, please reach out to us at varin66@gmail.com or virujthakur01@gmail.com
